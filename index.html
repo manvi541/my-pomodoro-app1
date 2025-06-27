@@ -1,64 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-<body>
-        <img src="newlogo.png" alt="MediSec Logo" id="club-logo">
+    <div class="pomodoro-section-wrapper">
+        <div id="timer-message">
+            Boost your focus and productivity.😊Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.
+        </div>
 
-  <div id="timer-message">Boost your focus and productivity. Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.</div>
+        <div class="container">
+            <div class="timer">
+                <h1>Pomodoro Timer</h1>
+                <div class="button-container">
+                    <button class="button active" data-time="25">Pomodoro!</button>
+                    <button class="button" data-time="5">Short Break!</button>
+                    <button class="button" data-time="15">Long Break!</button>
+                </div>
+                <main> <div class="pomodoro">
+                        <span class="time" id="time-display">25:00</span>
+                    </div>
+                </main>
+                <div class="buttons">
+                    <button id="start">START</button>
+                    <button id="stop">STOP</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <div class="container">
-    <div class="timer">
-      <h1> Pomodoro Timer</h1>
+    <div class="chatbot-container">
+        <h2>Chatbot</h2>
+        <div class="chat-toggle-btn">💬</div>
+        <div class="chat-content">
+            <div class="chat-messages" id="chat-messages">
+                <div class="bot-message initial-greeting">Hello! How can I help you?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendChatBtn">➤</button>
+            </div>
+        </div>
+    </div>
 
-      <div class="button-container">
-        <button class="button" id="pomodoro-session">Pomodoro!</button>
-        <button class="button" id="short-break">Short Break!</button>
-        <button class="button" id="long-break">Long Break!</button>
-      </div>
-      
-      <main>
-        <div class="pomodoro">           <div id="pomodoro-timer" class="timer-display active-timer" data-duration = "25:00">
-            <h1 class="time">25:00</h1>
-          </div>
-
-          <div id="short-timer" class="timer-display" data-duration="5:00">
-            <h1 class="time">5:00</h1>
-          </div>
-
-          <div id="long-timer" class="timer-display" data-duration="10:00">
-            <h1 class="time">10:00</h1>
-          </div>
-        </div>
-      </main>
-
-      <div class="buttons">
-        <button id="start">START</button>
-        <button id="stop">STOP</button>
-      </div>
-    </div>
-  </div> 
-
-        <div class="chatbot-container" id="chatbotContainer">
-                <button id="chatToggleBtn" class="chat-toggle-btn">❌</button> 
-        <div class="chat-content">
-            <h2>Study Assistant Chat</h2>
-            <div class="chat-messages" id="chatMessages">
-                <p class="bot-message initial-greeting">Hello! I'm your study assistant. How can I help you today?</p>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="Ask a question..." />
-                <button id="sendChatBtn">Send</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
