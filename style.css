@@ -1,4 +1,3 @@
-/* style.css - TIMER GROUP FINALLY CENTERED ROBUSTLY, LARGER BUTTONS/TIMER, CHATBOT UNCHANGED */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -34,36 +33,21 @@ body {
     width: 90%;
     max-width: 500px;
     flex-shrink: 0;
-    z-index: 10; /* Ensure it's above other content if necessary */
-    /* Position relative to control its z-index if needed */
+    z-index: 10;
     position: relative;
-}
-
-/* --- Club Logo Styling --- */
-#club-logo {
-    position: absolute;
-    top: 0px; /* Adjusted to be at the very top */
-    right: 0px; /* Adjusted to be at the very right */
-    width: 110px;
-    height: auto;
-    z-index: 999;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 /* --- NEW WRAPPER FOR POMODORO SECTION - THE MAIN CENTERING BLOCK --- */
 .pomodoro-section-wrapper {
-    /* This wrapper acts as the main container for all timer-related elements and should be centered by the body */
     width: 100%;
-    max-width: 600px; /* Constrain its maximum width on larger screens */
+    max-width: 600px;
     flex-shrink: 0;
-    min-height: unset; /* Ensure it doesn't force unnecessary vertical space */
-    /* It's also a flex container to stack and center its own children (message, container) */
+    min-height: unset;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers children like #timer-message and .container horizontally */
+    align-items: center;
     justify-content: flex-start;
-    margin-top: 20px; /* Space below the welcome message */
+    margin-top: 20px;
 }
 
 /* --- Timer Message Styling --- */
@@ -71,7 +55,7 @@ body {
     color: white;
     background-color: rgb(10, 113, 120);
     padding: .1rem .2rem;
-    font-size: 0.8rem; /* CHANGED: Increased from 0.65rem to 0.8rem */
+    font-size: 0.8rem;
     text-align: center;
     border-radius: 0.5rem;
     margin-top: 5px;
@@ -81,8 +65,8 @@ body {
 }
 
 .container {
-    width: 100%; /* Take full width of pomodoro-section-wrapper */
-    max-width: 600px; /* Redundant if parent is 600px, but harmless */
+    width: 100%;
+    max-width: 600px;
     padding: 0;
     margin: 0;
     flex-grow: 0;
@@ -91,29 +75,29 @@ body {
 
 /* --- THE KEY TO CENTERING THE ENTIRE TIMER UNIT: .timer as a Flex Container --- */
 .timer {
-    display: flex; /* Make .timer a flex container */
-    flex-direction: column; /* Stack its children (h1, buttons, main, start/stop) vertically */
-    align-items: center; /* **CRITICAL: This will horizontally center ALL its direct children** */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
-    width: 100%; /* Ensure it spans the width of its parent (.container) */
+    width: 100%;
     box-sizing: border-box;
     position: relative;
 }
 
 h1 {
-    font-size: 1.5rem; /* Increased from 1.3rem */
-    margin: 0; /* Ensures no conflicting margins; .timer's align-items centers it */
-    text-align: center; /* Fallback for text centering within its own block */
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
 }
 
 .button-container {
     margin-top: 0px;
     display: flex;
-    justify-content: center; /* Centers the buttons *within* this container */
+    justify-content: center;
     gap: 1px;
     flex-shrink: 0;
-    margin-left: 0; /* Explicitly remove auto-margins */
-    margin-right: 0; /* Explicitly remove auto-margins */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* --- Pomodoro Type Buttons (Pomodoro!, Short Break!, Long Break!) --- */
@@ -122,11 +106,11 @@ h1 {
     color: #000000;
     border: none;
     border-radius: 3px;
-    padding: 4px 8px; /* Increased from 2px 5px */
+    padding: 4px 8px;
     margin: 1px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.75rem; /* Increased from 0.6rem */
+    font-size: 0.75rem;
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -142,24 +126,23 @@ h1 {
 
 
 /* --- Pomodoro Timer & Border Styling (main element - the red circle) --- */
-#main-timer-display { /* Apply styles directly to the ID of the main timer display element */
-    width: 20rem; /* Increased from 18rem */
-    height: 20rem; /* Increased from 18rem */
+#main-timer-display {
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
-    /* No text-align here, flexbox on .pomodoro handles internal centering */
-    margin-top: -30px; /* STILL AGGRESSIVE NEGATIVE MARGIN-TOP for vertical position */
+    margin-top: -30px;
     margin-bottom: 0px;
-    justify-content: center; /* Centers .pomodoro horizontally within main-timer-display */
-    align-items: center; /* Centers .pomodoro vertically within main-timer-display */
+    justify-content: center;
+    align-items: center;
     z-index: 1;
     flex-shrink: 0;
-    margin-left: 0; /* Explicitly remove auto-margins; .timer's align-items centers this block */
-    margin-right: 0; /* Explicitly remove auto-margins; .timer's align-items centers this block */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .pomodoro {
-    width: 16rem; /* Proportional to main */
-    height: 16rem; /* Proportional to main */
+    width: 16rem;
+    height: 16rem;
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -174,43 +157,46 @@ h1 {
 .pomodoro::before {
     content: "";
     position: absolute;
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
-    border: 4px solid rgb(99, 224, 233);
+    width: calc(100% + 7px); /* Adjusted for potential border rendering */
+    height: calc(100% + 7px); /* Adjusted for potential border rendering */
+    border: 3.5px solid rgb(99, 224, 233); /* Adjusted for potential border rendering */
     border-radius: 50%;
-    top: -4px;
-    left: -4px;
+    top: -3.5px; /* Half of new border width */
+    left: -3.5px; /* Half of new border width */
     z-index: -1;
+    transform: translateZ(0); /* Forces hardware acceleration */
+    -webkit-font-smoothing: antialiased; /* Can help text and shapes look smoother */
+    -moz-osx-font-smoothing: grayscale; /* For Firefox */
 }
 
 /* --- Timer Display Numbers --- */
 .time {
-    font-size: 3.5rem !important; /* Increased from 3rem */
-    margin: 0 auto; /* Ensures the time text is centered within .pomodoro */
+    font-size: 3.5rem !important;
+    margin: 0 auto;
     display: block;
     width: 100%;
     text-align: center;
 }
 
 .buttons {
-    margin-top: -10px; /* NEGATIVE MARGIN-TOP to pull these buttons up */
+    margin-top: -10px;
     display: flex;
-    justify-content: center; /* Centers the start/stop buttons *within* this container */
+    justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin-left: 0; /* Explicitly remove auto-margins */
-    margin-right: 0; /* Explicitly remove auto-margins */
+    margin-left: 0;
+    margin-right: 0;
 }
 /* --- Start/Stop Buttons --- */
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 4px;
-    padding: 7px 14px; /* Increased from 5px 10px */
+    padding: 7px 14px;
     margin: 2px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.9rem; /* Increased from 0.75rem */
+    font-size: 0.9rem;
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -219,7 +205,7 @@ h1 {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (UNTOUCHED - Back to bottom-right fixed) --- */
+/* --- Chatbot Styles --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
@@ -378,16 +364,16 @@ h1 {
 /* Positioning for the toggle button */
 .chat-toggle-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 15px; /* Pushed down slightly from top */
+    right: 15px; /* Pushed in slightly from right */
     transform: none;
-    background-color: transparent;
+    background-color: transparent; /* Ensure no background to hide 'X' */
     color: #a02000;
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2em;
+    width: 40px; /* Slightly larger clickable area */
+    height: 40px; /* Slightly larger clickable area */
+    font-size: 1.8em; /* Make the 'X' more prominent */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -422,66 +408,61 @@ h1 {
         gap: 0px;
         padding: 0px;
     }
-    #club-logo {
-        width: 90px;
-        top: 0px;
-        right: 0px;
-    }
     #welcome-message {
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
         margin-top: 10px;
     }
     .pomodoro-section-wrapper {
-        max-width: 95%; /* Adjust wrapper width for small screens */
-        min-height: unset; /* Remove min-height for small screens to prevent overflow */
-        margin-top: 15px; /* Adjust spacing for small screens */
+        max-width: 95%;
+        min-height: unset;
+        margin-top: 15px;
     }
     #timer-message {
-        font-size: 0.7rem; /* CHANGED: Increased from 0.6rem to 0.7rem */
+        font-size: 0.7rem;
         padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.3rem; /* Increased from 1.2rem */
-        margin: 0; /* Align-items centers it now */
+        font-size: 1.3rem;
+        margin: 0;
     }
     .button-container {
         margin-top: 0px;
         gap: 0px;
     }
     .button {
-        padding: 2px 6px; /* Increased from 1px 4px */
-        font-size: 0.65rem; /* Increased from 0.55rem */
+        padding: 2px 6px;
+        font-size: 0.65rem;
     }
-    #main-timer-display { /* Apply styles directly to the ID of the main timer display element */
-        width: 15rem; /* Increased from 13rem */
-        height: 15rem; /* Increased from 13rem */
-        margin-top: -30px; /* Still aggressive negative margin for timer */
+    #main-timer-display {
+        width: 15rem;
+        height: 15rem;
+        margin-top: -30px;
         margin-bottom: 0px;
     }
     .pomodoro {
-        width: 12rem; /* Increased from 10rem */
-        height: 12rem; /* Increased from 10rem */
+        width: 12rem;
+        height: 12rem;
     }
     .pomodoro::before {
-        border: 3px solid rgb(99, 224, 233);
-        width: calc(100% + 6px);
-        height: calc(100% + 6px);
-        top: -3px;
-        left: -3px;
+        border: 2.5px solid rgb(99, 224, 233); /* Adjusted */
+        width: calc(100% + 5px); /* Adjusted */
+        height: calc(100% + 5px); /* Adjusted */
+        top: -2.5px;
+        left: -2.5px;
     }
     .time {
-        font-size: 3rem !important; /* Increased from 2.5rem */
-        margin: 0 auto; /* Ensure it's centered */
+        font-size: 3rem !important;
+        margin: 0 auto;
     }
     .buttons {
-        margin-top: -10px; /* Still aggressive negative margin for start/stop buttons */
+        margin-top: -10px;
     }
     #start, #stop {
-        padding: 6px 12px; /* Increased from 4px 8px */
+        padding: 6px 12px;
         margin: 2px;
-        font-size: 0.85rem; /* Increased from 0.7rem */
+        font-size: 0.85rem;
     }
 
     /* Chatbot adjustments for smaller screens (retained bottom-right fixed) */
@@ -516,11 +497,11 @@ h1 {
         font-size: 0.4em;
     }
     .chat-toggle-btn {
-        top: 5px;
-        right: 5px;
-        width: 20px;
-        height: 20px;
-        font-size: 0.9em;
+        top: 10px; /* Adjusted for small screens */
+        right: 10px; /* Adjusted for small screens */
+        width: 30px;
+        height: 30px;
+        font-size: 1.5em; /* Adjusted for small screens */
     }
     .chatbot-container.collapsed .chat-toggle-btn {
         width: 30px;
