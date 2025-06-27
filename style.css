@@ -1,4 +1,4 @@
-/* style.css - Final Vertical Compactness for ALL Elements */
+/* style.css - MAXIMUM UPWARD SHIFT FOR TIMER, CHATBOT BACK TO BOTTOM-RIGHT */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -176,7 +176,7 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Centered horizontally) --- */
+/* --- Chatbot Styles (Reverted to bottom-right fixed) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
@@ -188,9 +188,9 @@ main {
     padding: 25px;
     color: #333;
     position: fixed;
-    bottom: 0; /* Pushed to the very bottom edge */
-    left: 50%; /* Start at 50% from the left */
-    transform: translateX(-50%); /* Shift left by half its width to center */
+    bottom: 0; /* Fixed to the very bottom edge */
+    right: 0; /* Fixed to the very right edge */
+    /* Removed 'left: 50%;' and 'transform: translateX(-50%);' */
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
@@ -381,12 +381,12 @@ main {
         padding: 0px;
     }
     #club-logo {
-        width: 90px; /* Even smaller logo on small screens */
+        width: 90px;
         top: 0px;
         right: 0px;
     }
     #timer-message {
-        font-size: 0.6rem; /* Smallest font for message on small screens */
+        font-size: 0.6rem;
         padding: .05rem .1rem;
         margin-top: 2px;
     }
@@ -403,27 +403,27 @@ main {
         font-size: 0.55rem;
     }
     main {
-        width: 13rem; /* Further scaled down main circle on small screens */
+        width: 13rem;
         height: 13rem;
-        margin-top: -30px; /* **More aggressive negative margin on small screens** */
+        margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
     }
     .pomodoro {
-        width: 10rem; /* Scaled down inner circle */
+        width: 10rem;
         height: 10rem;
     }
     .pomodoro::before {
-        border: 3px solid rgb(99, 224, 233); /* Minimal border */
+        border: 3px solid rgb(99, 224, 233);
         width: calc(100% + 6px);
         height: calc(100% + 6px);
         top: -3px;
         left: -3px;
     }
     .time {
-        font-size: 2.5rem !important; /* Smallest font for time */
+        font-size: 2.5rem !important;
     }
     .buttons {
-        margin-top: -10px; /* **More aggressive negative margin for buttons on small screens** */
+        margin-top: -10px; /* Still aggressive negative margin for start/stop buttons */
     }
     #start, #stop {
         padding: 4px 8px;
@@ -431,15 +431,15 @@ main {
         font-size: 0.7rem;
     }
 
-    /* Chatbot adjustments for smaller screens */
+    /* Chatbot adjustments for smaller screens (reverted to bottom-right fixed) */
     .chatbot-container {
-        width: 98vw;
-        height: 85vh;
-        max-height: 350px; /* Adjusted max height */
+        width: 98vw; /* Retain responsive width */
+        height: 85vh; /* Retain responsive height */
+        max-height: 350px; /* Retain max height */
         padding: 5px;
         bottom: 0px;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 0px; /* Back to bottom-right */
+        /* Removed 'left: 50%;' and 'transform: translateX(-50%);' */
     }
     .chatbot-container.collapsed {
         width: 35px;
