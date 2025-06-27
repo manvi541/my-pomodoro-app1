@@ -1,4 +1,4 @@
-/* style.css - TIMER CENTERED WITH TRANSFORM, CHATBOT BOTTOM-RIGHT, MAX VERTICAL COMPACTION */
+/* style.css - TIMER GROUP CENTERED, CHATBOT BOTTOM-RIGHT, MAX VERTICAL COMPACTION */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align from the very top */
-    align-items: center; /* Ensures main flex items are horizontally centered within the body's flow */
+    align-items: center; /* **CRITICAL: This centers all direct children (flex items) horizontally** */
     gap: 0px; /* Zero gap between main flex items */
     padding: 0px; /* Zero padding on body */
     min-height: 100vh; /* Ensure body takes full viewport height */
@@ -55,7 +55,7 @@ body {
     width: 100%;
     max-width: 600px;
     padding: 0; /* No padding */
-    margin: 0; /* No margin - let body's align-items center it indirectly */
+    margin: 0; /* Ensure no margin is pushing it off center */
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -73,7 +73,7 @@ h1 {
 .button-container {
     margin-top: 0px; /* Zero margin-top */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the buttons within their container */
     gap: 1px; /* Minimal gap */
     flex-shrink: 0;
 }
@@ -86,18 +86,18 @@ main {
     text-align: center;
     margin-top: -30px; /* **MUCH MORE AGGRESSIVE NEGATIVE MARGIN-TOP** */
     margin-bottom: 0px; /* Zero bottom margin */
-    /* **NEW: Explicitly position and transform for perfect centering** */
-    position: relative; /* Needs to be relative for left/transform to work accurately */
-    left: 0; /* Resetting any default left */
-    transform: translateX(0); /* Resetting any default transform */
-    /* The body's align-items: center will center this flex item,
-       but we also need to ensure its internal content is centered, which it is. */
-    /* Removing margin-left/right auto here as body's align-items handles it better */
+    /* **CRITICAL CHANGE: Remove explicit positioning to let body's align-items center it** */
+    /* position: relative; */ /* REMOVED */
+    /* left: 0; */ /* REMOVED */
+    /* transform: translateX(0); */ /* REMOVED */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     flex-shrink: 0;
+    /* Adding margin: 0 auto; here for extra certainty it acts as a centered block within the flex flow */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pomodoro {
@@ -161,7 +161,7 @@ main {
 .buttons {
     margin-top: -10px; /* **NEGATIVE MARGIN-TOP to pull these buttons up** */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the start/stop buttons within their container */
     align-items: center;
     flex-shrink: 0;
 }
@@ -412,10 +412,12 @@ main {
         height: 13rem;
         margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
-        /* NEW: Explicit positioning for centering on small screens */
-        position: relative;
-        left: 0;
-        transform: translateX(0);
+        /* CRITICAL CHANGE: Remove explicit positioning on small screens too */
+        /* position: relative; */ /* REMOVED */
+        /* left: 0; */ /* REMOVED */
+        /* transform: translateX(0); */ /* REMOVED */
+        margin-left: auto;
+        margin-right: auto;
     }
     .pomodoro {
         width: 10rem;
