@@ -22,11 +22,28 @@ body {
     overflow: hidden; /* Prevent body scroll if content overflows, but can hide issues if not centered */
 }
 
+/* --- Welcome Message Styling --- */
+#welcome-message {
+    color: white;
+    background-color: rgb(10, 113, 120);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-top: 15px; /* Adjust margin to push it down from the top */
+    width: 90%;
+    max-width: 500px;
+    flex-shrink: 0;
+    z-index: 10; /* Ensure it's above other content if necessary */
+    /* Position relative to control its z-index if needed */
+    position: relative;
+}
+
 /* --- Club Logo Styling --- */
 #club-logo {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0px; /* Adjusted to be at the very top */
+    right: 0px; /* Adjusted to be at the very right */
     width: 110px;
     height: auto;
     z-index: 999;
@@ -39,15 +56,14 @@ body {
     /* This wrapper acts as the main container for all timer-related elements and should be centered by the body */
     width: 100%;
     max-width: 600px; /* Constrain its maximum width on larger screens */
-    /* Removed redundant margin: 0 auto; as body's align-items should handle centering */
     flex-shrink: 0;
     min-height: unset; /* Ensure it doesn't force unnecessary vertical space */
-
     /* It's also a flex container to stack and center its own children (message, container) */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers children like #timer-message and .container horizontally */
     justify-content: flex-start;
+    margin-top: 20px; /* Space below the welcome message */
 }
 
 /* --- Timer Message Styling --- */
@@ -62,7 +78,6 @@ body {
     width: 99.5%;
     max-width: 400px;
     flex-shrink: 0;
-    /* Removed explicit auto-margins here, parent's align-items centers it */
 }
 
 .container {
@@ -72,7 +87,6 @@ body {
     margin: 0;
     flex-grow: 0;
     flex-shrink: 0;
-    /* Removed text-align: center; as .timer will handle flex centering for its children */
 }
 
 /* --- THE KEY TO CENTERING THE ENTIRE TIMER UNIT: .timer as a Flex Container --- */
@@ -83,7 +97,7 @@ body {
     padding: 0;
     width: 100%; /* Ensure it spans the width of its parent (.container) */
     box-sizing: border-box;
-    position: relative; /* Good practice for children with absolute positioning, though we're avoiding that now */
+    position: relative;
 }
 
 h1 {
@@ -117,27 +131,26 @@ h1 {
 .button.active, .button:hover {
     background-color: #17ffecf5;
 }
-.hidden {
-    display: none !important;
-}
+
+/* Updated timer-display visibility rules */
 .timer-display {
-    display: none;
+    display: none; /* Hidden by default */
 }
 .timer-display.active-timer {
-    display: block;
+    display: flex; /* Changed from block to flex to ensure content is centered within it */
 }
 
+
 /* --- Pomodoro Timer & Border Styling (main element - the red circle) --- */
-main {
+#main-timer-display { /* Apply styles directly to the ID of the main timer display element */
     width: 20rem; /* Increased from 18rem */
     height: 20rem; /* Increased from 18rem */
     border-radius: 50%;
-    text-align: center; /* For content inside main, e.g., .time */
+    /* No text-align here, flexbox on .pomodoro handles internal centering */
     margin-top: -30px; /* STILL AGGRESSIVE NEGATIVE MARGIN-TOP for vertical position */
     margin-bottom: 0px;
-    display: flex; /* Flex container for its child .pomodoro */
-    justify-content: center; /* Centers .pomodoro horizontally within main */
-    align-items: center; /* Centers .pomodoro vertically within main */
+    justify-content: center; /* Centers .pomodoro horizontally within main-timer-display */
+    align-items: center; /* Centers .pomodoro vertically within main-timer-display */
     z-index: 1;
     flex-shrink: 0;
     margin-left: 0; /* Explicitly remove auto-margins; .timer's align-items centers this block */
@@ -414,9 +427,15 @@ main {
         top: 0px;
         right: 0px;
     }
+    #welcome-message {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+        margin-top: 10px;
+    }
     .pomodoro-section-wrapper {
         max-width: 95%; /* Adjust wrapper width for small screens */
         min-height: unset; /* Remove min-height for small screens to prevent overflow */
+        margin-top: 15px; /* Adjust spacing for small screens */
     }
     #timer-message {
         font-size: 0.7rem; /* CHANGED: Increased from 0.6rem to 0.7rem */
@@ -435,12 +454,11 @@ main {
         padding: 2px 6px; /* Increased from 1px 4px */
         font-size: 0.65rem; /* Increased from 0.55rem */
     }
-    main {
+    #main-timer-display { /* Apply styles directly to the ID of the main timer display element */
         width: 15rem; /* Increased from 13rem */
         height: 15rem; /* Increased from 13rem */
         margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
-        /* No positioning or auto margins here - .timer's align-items centers it */
     }
     .pomodoro {
         width: 12rem; /* Increased from 10rem */
