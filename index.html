@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
-    <base href="https://manvi541.github.io/my-pomodoro-app1/">
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- IMPORTANT: The <base> tag that caused deployment issues has been removed.
+         Relative paths like "style.css", "script.js", and "newlogo.png" will now correctly
+         resolve relative to the deployed URL on Render. -->
 </head>
 <body>
-        <img src="newlogo.png" alt="MediSec Logo" id="club-logo">
+    <!-- Club Logo positioned absolutely for branding -->
+    <img src="newlogo.png" alt="MediSec Logo" id="club-logo">
 
-  <div id="timer-message">Welcome to MediSec! Boost your focus and productivity. Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.</div>
+    <!-- Introductory message for the timer -->
+    <div id="timer-message">Welcome to MediSec! Boost your focus and productivity. Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.</div>
 
-  <div class="container">
-    <div class="timer">
-      <h1> Pomodoro Timer</h1>
+    <!-- Main container for the Pomodoro Timer -->
+    <div class="container">
+        <div class="timer">
+            <h1> Pomodoro Timer</h1>
 
-      <div class="button-container">
-        <button class="button" id="pomodoro-session">Pomodoro!</button>
-        <button class="button" id="short-break">Short Break!</button>
-        <button class="button" id="long-break">Long Break!</button>
-      </div>
-      
-      <main>
-        <div class="pomodoro">           <div id="pomodoro-timer" class="timer-display active-timer" data-duration = "25:00">
-            <h1 class="time">25:00</h1>
-          </div>
+            <!-- Timer session selection buttons -->
+            <div class="button-container">
+                <button class="button" id="pomodoro-session">Pomodoro!</button>
+                <button class="button" id="short-break">Short Break!</button>
+                <button class="button" id="long-break">Long Break!</button>
+            </div>
+            
+            <!-- Main display area for the timer -->
+            <main>
+                <div class="pomodoro">
+                    <!-- Pomodoro Timer display -->
+                    <div id="pomodoro-timer" class="timer-display active-timer" data-duration="25:00">
+                        <h1 class="time">25:00</h1>
+                    </div>
 
-          <div id="short-timer" class="timer-display" data-duration="5:00">
-            <h1 class="time">5:00</h1>
-          </div>
+                    <!-- Short Break Timer display -->
+                    <div id="short-timer" class="timer-display" data-duration="5:00">
+                        <h1 class="time">5:00</h1>
+                    </div>
 
-          <div id="long-timer" class="timer-display" data-duration="10:00">
-            <h1 class="time">10:00</h1>
-          </div>
-        </div>
-      </main>
+                    <!-- Long Break Timer display -->
+                    <div id="long-timer" class="timer-display" data-duration="10:00">
+                        <h1 class="time">10:00</h1>
+                    </div>
+                </div>
+            </main>
 
-      <div class="buttons">
-        <button id="start">START</button>
-        <button id="stop">STOP</button>
-      </div>
-    </div>
-  </div>
+            <!-- Start and Stop buttons for the timer -->
+            <div class="buttons">
+                <button id="start">START</button>
+                <button id="stop">STOP</button>
+            </div>
+        </div>
+    </div>
 
-        <div class="chatbot-container" id="chatbotContainer">
-                <button id="chatToggleBtn" class="chat-toggle-btn">❌</button> 
-        <div class="chat-content">
-            <h2>Study Assistant Chat</h2>
-            <div class="chat-messages" id="chatMessages">
-                <p class="bot-message initial-greeting">Hello! I'm your study assistant. How can I help you today?</p>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="Ask a question..." />
-                <button id="sendChatBtn">Send</button>
-            </div>
-        </div>
-    </div>
+    <!-- Chatbot container and its components -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <!-- Toggle button to collapse/expand the chatbot -->
+        <button id="chatToggleBtn" class="chat-toggle-btn">❌</button> 
+        <div class="chat-content">
+            <h2>Study Assistant Chat</h2>
+            <!-- Area where chat messages are displayed -->
+            <div class="chat-messages" id="chatMessages">
+                <p class="bot-message initial-greeting">Hello! I'm your study assistant. How can I help you today?</p>
+            </div>
+            <!-- Input area for user messages -->
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Ask a question..." />
+                <button id="sendChatBtn">Send</button>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
