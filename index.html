@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
+    <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <img id="club-logo" src="logo.png" alt="Club Logo">
+    <img id="club-logo" src="logo.png" alt="MediSec Logo">
 
     <div class="pomodoro-section-wrapper">
         <div id="timer-message">
@@ -19,14 +19,28 @@
             <div class="timer">
                 <h1>Pomodoro Timer</h1>
                 <div class="button-container">
-                    <button class="button active" data-time="25">Pomodoro!</button>
-                    <button class="button" data-time="5">Short Break!</button>
-                    <button class="button" data-time="15">Long Break!</button>
+                    <button id="pomodoro-session" class="button active" data-time="25">Pomodoro!</button>
+                    <button id="short-break" class="button" data-time="5">Short Break!</button>
+                    <button id="long-break" class="button" data-time="15">Long Break!</button>
                 </div>
-                <main> <div class="pomodoro">
-                        <span class="time" id="time-display">25:00</span>
+                
+                <div id="pomodoro-timer" class="timer-display active-timer" data-duration="25:00">
+                    <div class="pomodoro"> <span class="time">25:00</span>
                     </div>
-                </main>
+                </div>
+
+                <div id="short-timer" class="timer-display" data-duration="05:00">
+                    <div class="pomodoro">
+                        <span class="time">05:00</span>
+                    </div>
+                </div>
+
+                <div id="long-timer" class="timer-display" data-duration="15:00">
+                    <div class="pomodoro">
+                        <span class="time">15:00</span>
+                    </div>
+                </div>
+
                 <div class="buttons">
                     <button id="start">START</button>
                     <button id="stop">STOP</button>
@@ -35,9 +49,9 @@
         </div>
     </div>
 
-    <div class="chatbot-container">
+    <div id="chatbotContainer" class="chatbot-container">
         <h2>Chatbot</h2>
-        <div class="chat-toggle-btn">X</div> 
+        <div id="chatToggleBtn" class="chat-toggle-btn">X</div> 
         <div class="chat-content">
             <div class="chat-messages" id="chat-messages">
                 <div class="bot-message initial-greeting">Hello! How can I help you?</div>
