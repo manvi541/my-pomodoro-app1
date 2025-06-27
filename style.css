@@ -179,15 +179,15 @@ main {
     border-radius: 15px; /* Slightly rounded corners for rectangular shape */
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     /* Increased dimensions for opened chatbot to be more usable */
-    width: 280px; /* Increased width */
-    height: 400px; /* Increased height */
+    width: 320px; /* Increased width for better readability */
+    height: 480px; /* Increased height for more content area */
     display: flex;
     flex-direction: column;
-    padding: 15px; /* Adjusted padding */
+    padding: 20px; /* Increased padding */
     color: #333;
     position: fixed;
-    bottom: 10px; /* Pushed slightly more to the bottom */
-    right: 10px; /* Pushed slightly more to the right */
+    bottom: 15px; /* Pushed slightly more to the bottom */
+    right: 15px; /* Pushed slightly more to the right */
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
@@ -210,16 +210,16 @@ main {
 /* Chatbot toggle button specific styles to remove artifacts */
 .chat-toggle-btn {
     position: absolute;
-    top: 10px; /* Adjusted position for slightly larger chat window */
-    right: 10px; /* Adjusted position for slightly larger chat window */
+    top: 15px; /* Adjusted position for larger chat window */
+    right: 15px; /* Adjusted position for larger chat window */
     /* Ensure background is transparent and no extra borders/shadows */
     background-color: transparent; /* Default state should be transparent within expanded chatbot */
     color: #a02000;
     border: none; /* Removed any potential border */
     border-radius: 50%;
-    width: 30px; /* Larger button */
-    height: 30px; /* Larger button */
-    font-size: 1.2em; /* Adjusted font size */
+    width: 35px; /* Larger button */
+    height: 35px; /* Larger button */
+    font-size: 1.3em; /* Adjusted font size */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,9 +258,9 @@ main {
 /* Chatbot header */
 .chatbot-container h2 {
     text-align: center;
-    margin-bottom: 8px; /* Restored margin */
+    margin-bottom: 10px; /* Adjusted margin */
     color: #a02000;
-    font-size: 1.3rem; /* Restored font size */
+    font-size: 1.4rem; /* Adjusted font size */
     flex-shrink: 0;
 }
 
@@ -272,25 +272,25 @@ main {
     overflow-y: auto;
     border: none;
     border-radius: 10px; /* Consistent border-radius */
-    padding: 8px; /* Restored padding */
-    margin-bottom: 8px; /* Restored margin */
+    padding: 10px; /* Adjusted padding */
+    margin-bottom: 10px; /* Adjusted margin */
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    gap: 6px; /* Restored gap between messages */
-    min-height: 200px; /* Adjusted min-height for better scroll area */
+    gap: 8px; /* Adjusted gap between messages */
+    min-height: 250px; /* Increased min-height for more message content */
 }
 
 /* Base styles for chat messages */
 .user-message, .bot-message {
-    padding: 6px 10px; /* Restored padding */
+    padding: 8px 12px; /* Adjusted padding */
     border-radius: 12px; /* Consistent border-radius */
     max-width: 90%; /* Consistent max-width */
     margin-bottom: 0;
     word-wrap: break-word;
-    font-size: 0.85em; /* Restored font size */
-    line-height: 1.3; /* Restored line height */
+    font-size: 0.9em; /* Adjusted font size */
+    line-height: 1.4; /* Adjusted line height */
 }
 
 /* Specific styling for user messages */
@@ -317,33 +317,33 @@ main {
     font-style: italic;
     color: #555;
     text-align: center;
-    margin: 6px auto; /* Restored margin */
-    padding: 8px 12px; /* Restored padding */
+    margin: 8px auto; /* Adjusted margin */
+    padding: 10px 15px; /* Adjusted padding */
     border-radius: 12px;
 }
 
 /* Chat input and send button area */
 .chat-input-area {
     display: flex;
-    gap: 6px; /* Restored gap */
+    gap: 8px; /* Adjusted gap */
     align-items: center; /* Align items to center vertically */
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 5px 10px; /* Restored padding */
+    padding: 10px; /* Adjusted padding */
 }
 
 /* User input field */
 #userInput {
     flex-grow: 1;
-    padding: 6px 10px; /* Restored padding */
+    padding: 8px 12px; /* Adjusted padding */
     border: none;
-    border-radius: 8px; /* Restored border-radius */
-    font-size: 0.8em; /* Restored font size */
+    border-radius: 8px; /* Consistent border-radius */
+    font-size: 0.85em; /* Adjusted font size */
     outline: none;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: box-shadow 0.2s ease;
-    height: 30px; /* Restored height */
+    height: 40px; /* Adjusted height */
 }
 
 #userInput:focus {
@@ -353,15 +353,15 @@ main {
 /* Send chat button */
 #sendChatBtn, #getTipBtn { /* Apply styles to both buttons */
     /* Circular button with border */
-    width: 30px; /* Match height for perfect circle */
-    height: 30px; /* Match input height */
+    width: 40px; /* Adjusted width */
+    height: 40px; /* Adjusted height */
     padding: 0; /* Remove internal padding to ensure perfect circle */
     background-color: #a02000;
     color: white;
     border: 2px solid #55a8cf; /* Circular border with accent color */
     border-radius: 50%; /* Make it circular */
     cursor: pointer;
-    font-size: 0.6em; /* Restored font size */
+    font-size: 0.7em; /* Adjusted font size */
     font-weight: 600;
     display: flex;
     justify-content: center;
@@ -395,34 +395,34 @@ main {
     }
     /* Adjust chatbot container on smaller screens if necessary */
     .chatbot-container:not(.collapsed) {
-        height: 350px; /* Adjusted height for mobile */
-        width: 85%; /* Adjusted width for mobile */
-        padding: 10px; /* Adjusted padding */
-        bottom: 5px; /* Further reduced bottom margin for mobile */
-        right: 5px; /* Further reduced right margin for mobile */
+        height: 400px; /* Adjusted height for mobile */
+        width: 90%; /* Adjusted width for mobile */
+        padding: 15px; /* Adjusted padding */
+        bottom: 10px; /* Adjusted bottom margin for mobile */
+        right: 10px; /* Adjusted right margin for mobile */
     }
     .chatbot-container h2 {
-        font-size: 1.2rem; /* Adjusted font size */
+        font-size: 1.3rem; /* Adjusted font size */
     }
     .user-message, .bot-message {
-        font-size: 0.8em; /* Adjusted font size */
+        font-size: 0.85em; /* Adjusted font size */
     }
     #userInput, #sendChatBtn, #getTipBtn { /* Apply to all buttons */
-        padding: 4px 8px; /* Adjusted padding */
-        font-size: 0.7em; /* Adjusted font size */
-        height: 25px; /* Adjusted height */
+        padding: 6px 10px; /* Adjusted padding */
+        font-size: 0.75em; /* Adjusted font size */
+        height: 35px; /* Adjusted height */
     }
     #sendChatBtn, #getTipBtn { /* Apply to all buttons */
-        width: 25px;
-        height: 25px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%; /* Ensure circular on small screens */
-        font-size: 0.5em; /* Adjusted font size to fit */
+        font-size: 0.6em; /* Adjusted font size to fit */
     }
     .chat-toggle-btn {
-        top: 8px; /* Adjusted position for mobile */
-        right: 8px; /* Adjusted position for mobile */
-        width: 28px; /* Adjusted size */
-        height: 28px; /* Adjusted size */
-        font-size: 1.1em;
+        top: 10px; /* Adjusted position for mobile */
+        right: 10px; /* Adjusted position for mobile */
+        width: 30px; /* Adjusted size */
+        height: 30px; /* Adjusted size */
+        font-size: 1.2em;
     }
 }
