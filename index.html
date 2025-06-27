@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
-    <base href="https://manvi541.github.io/my-pomodoro-app1/">
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
         <img src="newlogo.png" alt="MediSec Logo" id="club-logo">
@@ -24,7 +23,7 @@
       </div>
       
       <main>
-        <div class="pomodoro">           <div id="pomodoro-timer" class="timer-display active-timer" data-duration = "25:00">
+        <div class="pomodoro">           <div id="pomodoro-timer" class="timer-display active-timer" data-duration = "25:00">
             <h1 class="time">25:00</h1>
           </div>
 
@@ -43,4 +42,22 @@
         <button id="stop">STOP</button>
       </div>
     </div>
-  </div>
+  </div> 
+
+        <div class="chatbot-container" id="chatbotContainer">
+                <button id="chatToggleBtn" class="chat-toggle-btn">❌</button> 
+        <div class="chat-content">
+            <h2>Study Assistant Chat</h2>
+            <div class="chat-messages" id="chatMessages">
+                <p class="bot-message initial-greeting">Hello! I'm your study assistant. How can I help you today?</p>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Ask a question..." />
+                <button id="sendChatBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
