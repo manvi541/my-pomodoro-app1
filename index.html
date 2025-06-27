@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MediSec | Pomodoro Timer | Focus & Study Assistant</title>
+    <title>| Pomodoro Timer | Focus & Study Assistant</title>
     <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to your custom stylesheet -->
+    <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
-    <!-- IMPORTANT: The <base> tag that caused deployment issues has been removed.
-         Relative paths like "style.css", "script.js", and "newlogo.png" will now correctly
-         resolve relative to the deployed URL on Render. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Club Logo positioned absolutely for branding -->
-    <img src="newlogo.png" alt="MediSec Logo" id="club-logo">
-
     <!-- Introductory message for the timer -->
-    <div id="timer-message">Welcome to MediSec! Boost your focus and productivity. Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.</div>
+    <div id="timer-message">Boost your focus and productivity. Select a timer to begin your journey to better study habits with our Pomodoro Timer and helpful Study Assistant.</div>
 
     <!-- Main container for the Pomodoro Timer -->
     <div class="container">
@@ -72,12 +69,13 @@
             <!-- Input area for user messages -->
             <div class="chat-input-area">
                 <input type="text" id="userInput" placeholder="Ask a question..." />
+                <button id="getTipBtn">✨ Tip</button> <!-- New LLM-powered button -->
                 <button id="sendChatBtn">Send</button>
             </div>
         </div>
     </div>
 
-    <!-- Link to your JavaScript file -->
+    <!-- Link to your external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
