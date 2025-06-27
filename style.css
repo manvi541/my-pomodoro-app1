@@ -1,4 +1,4 @@
-/* style.css - AFTER REMOVING CLUB LOGO */
+/* style.css - FINAL CONSOLIDATED VERSION WITH ALL FIXES */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -22,8 +22,9 @@ body {
     overflow: hidden; /* Prevent body scroll if content overflows, but can hide issues if not centered */
 }
 
-/* --- Club Logo Styling - THIS ENTIRE BLOCK IS REMOVED --- */
-/* (You will delete the #club-logo rule and its media query counterpart) */
+/* --- Club Logo Styling - REMOVED COMPLETELY --- */
+/* The #club-logo rules have been deleted from this file */
+
 
 /* --- NEW WRAPPER FOR POMODORO SECTION - THE MAIN CENTERING BLOCK --- */
 .pomodoro-section-wrapper {
@@ -45,7 +46,7 @@ body {
     color: white;
     background-color: rgb(10, 113, 120);
     padding: .1rem .2rem;
-    font-size: 0.8rem; /* Current size for larger screens */
+    font-size: 0.8rem; /* Corrected: A bit larger */
     text-align: center;
     border-radius: 0.5rem;
     margin-top: 5px;
@@ -55,8 +56,8 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 600px;
+    width: 100%; /* Take full width of pomodoro-section-wrapper */
+    max-width: 600px; /* Redundant if parent is 600px, but harmless */
     padding: 0;
     margin: 0;
     flex-grow: 0;
@@ -65,29 +66,29 @@ body {
 
 /* --- THE KEY TO CENTERING THE ENTIRE TIMER UNIT: .timer as a Flex Container --- */
 .timer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex; /* Make .timer a flex container */
+    flex-direction: column; /* Stack its children (h1, buttons, main, start/stop) vertically */
+    align-items: center; /* **CRITICAL: This will horizontally center ALL its direct children** */
     padding: 0;
-    width: 100%;
+    width: 100%; /* Ensure it spans the width of its parent (.container) */
     box-sizing: border-box;
     position: relative;
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin: 0;
-    text-align: center;
+    font-size: 1.5rem; /* Increased from 1.3rem */
+    margin: 0; /* Ensures no conflicting margins; .timer's align-items centers it */
+    text-align: center; /* Fallback for text centering within its own block */
 }
 
 .button-container {
     margin-top: 0px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the buttons *within* this container */
     gap: 1px;
     flex-shrink: 0;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0; /* Explicitly remove auto-margins */
+    margin-right: 0; /* Explicitly remove auto-margins */
 }
 
 /* --- Pomodoro Type Buttons (Pomodoro!, Short Break!, Long Break!) --- */
@@ -96,11 +97,11 @@ h1 {
     color: #000000;
     border: none;
     border-radius: 3px;
-    padding: 4px 8px;
+    padding: 4px 8px; /* Increased from 2px 5px */
     margin: 1px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.75rem;
+    font-size: 0.75rem; /* Increased from 0.6rem */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -117,24 +118,24 @@ h1 {
 
 /* --- Pomodoro Timer & Border Styling (main element - the red circle) --- */
 main {
-    width: 20rem;
-    height: 20rem;
+    width: 20rem; /* Increased from 18rem */
+    height: 20rem; /* Increased from 18rem */
     border-radius: 50%;
-    text-align: center;
-    margin-top: -30px;
+    text-align: center; /* For content inside main, e.g., .time */
+    margin-top: -30px; /* STILL AGGRESSIVE NEGATIVE MARGIN-TOP for vertical position */
     margin-bottom: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Flex container for its child .pomodoro */
+    justify-content: center; /* Centers .pomodoro horizontally within main */
+    align-items: center; /* Centers .pomodoro vertically within main */
     z-index: 1;
     flex-shrink: 0;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0; /* Explicitly remove auto-margins; .timer's align-items centers this block */
+    margin-right: 0; /* Explicitly remove auto-margins; .timer's align-items centers this block */
 }
 
 .pomodoro {
-    width: 16rem;
-    height: 16rem;
+    width: 16rem; /* Proportional to main */
+    height: 16rem; /* Proportional to main */
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -160,17 +161,17 @@ main {
 
 /* --- Timer Display Numbers --- */
 .time {
-    font-size: 3.5rem !important;
-    margin: 0 auto;
+    font-size: 3.5rem !important; /* Increased from 3rem */
+    margin: 0 auto; /* Ensures the time text is centered within .pomodoro */
     display: block;
     width: 100%;
     text-align: center;
 }
 
 .buttons {
-    margin-top: -10px;
+    margin-top: -10px; /* NEGATIVE MARGIN-TOP to pull these buttons up */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the start/stop buttons *within* this container */
     align-items: center;
     flex-shrink: 0;
     margin-left: 0;
@@ -181,11 +182,11 @@ main {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 4px;
-    padding: 7px 14px;
+    padding: 7px 14px; /* Increased from 5px 10px */
     margin: 2px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Increased from 0.75rem */
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -397,19 +398,20 @@ main {
         gap: 0px;
         padding: 0px;
     }
-    /* --- Club Logo Styling - THIS ENTIRE BLOCK IS REMOVED FROM HERE TOO --- */
-    /* (You will delete this #club-logo rule from the media query) */
+    /* --- Club Logo Styling - REMOVED COMPLETELY --- */
+    /* The #club-logo rules have been deleted from this file */
+
     .pomodoro-section-wrapper {
-        max-width: 95%;
-        min-height: unset;
+        max-width: 95%; /* Adjust wrapper width for small screens */
+        min-height: unset; /* Remove min-height for small screens to prevent overflow */
     }
     #timer-message {
-        font-size: 0.7rem; /* Current size for smaller screens */
+        font-size: 0.7rem; /* Corrected: A bit larger for smaller screens */
         padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.3rem; /* Increased from 1.2rem */
         margin: 0;
     }
     .button-container {
@@ -417,18 +419,18 @@ main {
         gap: 0px;
     }
     .button {
-        padding: 2px 6px;
-        font-size: 0.65rem;
+        padding: 2px 6px; /* Increased from 1px 4px */
+        font-size: 0.65rem; /* Increased from 0.55rem */
     }
     main {
-        width: 15rem;
-        height: 15rem;
-        margin-top: -30px;
+        width: 15rem; /* Increased from 13rem */
+        height: 15rem; /* Increased from 13rem */
+        margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
     }
     .pomodoro {
-        width: 12rem;
-        height: 12rem;
+        width: 12rem; /* Increased from 10rem */
+        height: 12rem; /* Increased from 10rem */
     }
     .pomodoro::before {
         border: 3px solid rgb(99, 224, 233);
@@ -438,7 +440,7 @@ main {
         left: -3px;
     }
     .time {
-        font-size: 3rem !important;
+        font-size: 3rem !important; /* Increased from 2.5rem */
         margin: 0 auto;
     }
     .buttons {
@@ -494,3 +496,4 @@ main {
         font-size: 1.1em;
     }
 }
+
