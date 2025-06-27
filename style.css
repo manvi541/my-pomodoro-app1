@@ -1,4 +1,4 @@
-/* style.css - TIMER GROUP CENTERED, CHATBOT BOTTOM-RIGHT, MAX VERTICAL COMPACTION */
+/* style.css - TIMER GROUP CENTERED VIA WRAPPER, CHATBOT BOTTOM-RIGHT, MAX VERTICAL COMPACTION, LARGER BUTTONS/TIMER */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align from the very top */
-    align-items: center; /* **CRITICAL: This centers all direct children (flex items) horizontally** */
+    align-items: center; /* This centers the .pomodoro-section-wrapper horizontally */
     gap: 0px; /* Zero gap between main flex items */
     padding: 0px; /* Zero padding on body */
     min-height: 100vh; /* Ensure body takes full viewport height */
@@ -32,6 +32,20 @@ body {
     z-index: 999;
     border-radius: 10px; /* Smaller radius */
     box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Lighter shadow */
+}
+
+/* --- NEW WRAPPER FOR POMODORO SECTION --- */
+.pomodoro-section-wrapper {
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack its children vertically */
+    align-items: center; /* Center its children horizontally (the message, container, etc.) */
+    width: 100%; /* Take full width to allow auto margins to work */
+    max-width: 600px; /* Limit its max width */
+    margin: 0 auto; /* **Crucial for horizontally centering this wrapper within the body** */
+    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-grow: 1; /* Allow it to grow, but min-height will limit vertical expansion */
+    min-height: 50vh; /* Give it some minimum height if needed, adjust if too much */
+    justify-content: flex-start; /* Align contents to the top of the wrapper */
 }
 
 /* --- Timer Message Styling --- */
@@ -53,9 +67,9 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 600px; /* Keep max-width for internal scaling */
     padding: 0; /* No padding */
-    margin: 0; /* Ensure no margin is pushing it off center */
+    margin: 0; /* No margin - now .pomodoro-section-wrapper centers it */
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -66,7 +80,7 @@ body {
     box-sizing: border-box;
 }
 h1 {
-    font-size: 1.3rem; /* Smallest font size for main h1 */
+    font-size: 1.5rem; /* Increased from 1.3rem */
     margin: 0px auto; /* Zero margin - this is for centering text within h1 */
 }
 
@@ -78,72 +92,17 @@ h1 {
     flex-shrink: 0;
 }
 
-/* --- Pomodoro Timer & Border Styling --- */
-main {
-    width: 18rem; /* Further reduced size to gain maximum vertical space */
-    height: 18rem; /* Further reduced size */
-    border-radius: 50%;
-    text-align: center;
-    margin-top: -30px; /* **MUCH MORE AGGRESSIVE NEGATIVE MARGIN-TOP** */
-    margin-bottom: 0px; /* Zero bottom margin */
-    /* **CRITICAL CHANGE: Remove explicit positioning to let body's align-items center it** */
-    /* position: relative; */ /* REMOVED */
-    /* left: 0; */ /* REMOVED */
-    /* transform: translateX(0); */ /* REMOVED */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    flex-shrink: 0;
-    /* Adding margin: 0 auto; here for extra certainty it acts as a centered block within the flex flow */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pomodoro {
-    width: 14rem; /* Reduced inner circle size proportionally */
-    height: 14rem; /* Reduced inner circle size proportionally */
-    border-radius: 50%;
-    background-color: #a02000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 5px 15px rgba(250, 214, 230, 0.4); /* Lighter shadow */
-}
-
-.pomodoro::before {
-    content: "";
-    position: absolute;
-    width: calc(100% + 8px); /* Thinner border */
-    height: calc(100% + 8px);
-    border: 4px solid rgb(99, 224, 233); /* Thinner border */
-    border-radius: 50%;
-    top: -4px;
-    left: -4px;
-    z-index: -1;
-}
-
-.time {
-    font-size: 3rem !important; /* Smaller font for time display */
-    margin: 0;
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
+/* --- Pomodoro Type Buttons (Pomodoro!, Short Break!, Long Break!) --- */
 .button {
     background-color: #fff2f9;
     color: #000000;
     border: none;
     border-radius: 3px;
-    padding: 2px 5px; /* Extremely minimal button padding */
+    padding: 4px 8px; /* Increased from 2px 5px */
     margin: 1px; /* Minimal button margin */
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.6rem; /* Smallest button font size */
+    font-size: 0.75rem; /* Increased from 0.6rem */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -158,6 +117,56 @@ main {
     display: block;
 }
 
+/* --- Pomodoro Timer & Border Styling --- */
+main {
+    width: 20rem; /* Increased from 18rem */
+    height: 20rem; /* Increased from 18rem */
+    border-radius: 50%;
+    text-align: center;
+    margin-top: -30px; /* STILL MUCH MORE AGGRESSIVE NEGATIVE MARGIN-TOP */
+    margin-bottom: 0px; /* Zero bottom margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.pomodoro {
+    width: 16rem; /* Increased from 14rem (proportional to main) */
+    height: 16rem; /* Increased from 14rem (proportional to main) */
+    border-radius: 50%;
+    background-color: #a02000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(250, 214, 230, 0.4); /* Lighter shadow */
+}
+
+.pomodoro::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px); /* Border remains proportional */
+    height: calc(100% + 8px);
+    border: 4px solid rgb(99, 224, 233); /* Thinner border */
+    border-radius: 50%;
+    top: -4px;
+    left: -4px;
+    z-index: -1;
+}
+
+/* --- Timer Display Numbers --- */
+.time {
+    font-size: 3.5rem !important; /* Increased from 3rem */
+    margin: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
 .buttons {
     margin-top: -10px; /* **NEGATIVE MARGIN-TOP to pull these buttons up** */
     display: flex;
@@ -165,15 +174,16 @@ main {
     align-items: center;
     flex-shrink: 0;
 }
+/* --- Start/Stop Buttons --- */
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 4px;
-    padding: 5px 10px; /* Reduced padding for start/stop buttons */
+    padding: 7px 14px; /* Increased from 5px 10px */
     margin: 2px; /* Reduced margin between start/stop */
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.75rem; /* Smaller font for start/stop */
+    font-size: 0.9rem; /* Increased from 0.75rem */
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -182,7 +192,7 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Back to bottom-right fixed) --- */
+/* --- Chatbot Styles (UNTOUCHED - Back to bottom-right fixed) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
@@ -365,7 +375,7 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #a02000;
+    background-color: #a02020;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     font-size: 1.8em;
@@ -390,13 +400,17 @@ main {
         top: 0px;
         right: 0px;
     }
+    .pomodoro-section-wrapper {
+        max-width: 95%; /* Adjust wrapper width for small screens */
+        min-height: unset; /* Remove min-height for small screens to prevent overflow */
+    }
     #timer-message {
         font-size: 0.6rem;
         padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem; /* Increased from 1.2rem */
         margin: 0px auto;
     }
     .button-container {
@@ -404,24 +418,18 @@ main {
         gap: 0px;
     }
     .button {
-        padding: 1px 4px;
-        font-size: 0.55rem;
+        padding: 2px 6px; /* Increased from 1px 4px */
+        font-size: 0.65rem; /* Increased from 0.55rem */
     }
     main {
-        width: 13rem;
-        height: 13rem;
+        width: 15rem; /* Increased from 13rem */
+        height: 15rem; /* Increased from 13rem */
         margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
-        /* CRITICAL CHANGE: Remove explicit positioning on small screens too */
-        /* position: relative; */ /* REMOVED */
-        /* left: 0; */ /* REMOVED */
-        /* transform: translateX(0); */ /* REMOVED */
-        margin-left: auto;
-        margin-right: auto;
     }
     .pomodoro {
-        width: 10rem;
-        height: 10rem;
+        width: 12rem; /* Increased from 10rem */
+        height: 12rem; /* Increased from 10rem */
     }
     .pomodoro::before {
         border: 3px solid rgb(99, 224, 233);
@@ -431,15 +439,15 @@ main {
         left: -3px;
     }
     .time {
-        font-size: 2.5rem !important;
+        font-size: 3rem !important; /* Increased from 2.5rem */
     }
     .buttons {
         margin-top: -10px; /* Still aggressive negative margin for start/stop buttons */
     }
     #start, #stop {
-        padding: 4px 8px;
+        padding: 6px 12px; /* Increased from 4px 8px */
         margin: 2px;
-        font-size: 0.7rem;
+        font-size: 0.85rem; /* Increased from 0.7rem */
     }
 
     /* Chatbot adjustments for smaller screens (retained bottom-right fixed) */
