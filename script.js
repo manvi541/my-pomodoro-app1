@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const long = document.getElementById("long-timer");
     const timers = document.querySelectorAll(".timer-display"); // All timer display elements
     const sessionBtn = document.getElementById("pomodoro-session");
-    const shortBreakBtn = document.getElementById("short-break");
+    const shortBreakBtn = document.getElementById("short-break"); // Corrected to document.getElementById
     const longBreakBtn = document.getElementById("long-break");
     const startBtn = document.getElementById("start");
-    const stopBtn = document.getElementById("stop");
+    const stopBtn = document.getElementById("stop"); 
     const timerMsg = document.getElementById("timer-message");
 
     let currentTimer = null; // Holds the currently selected timer element
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById("chatMessages");
     const userInput = document.getElementById("userInput");
     const sendChatBtn = document.getElementById("sendChatBtn");
+    const getTipBtn = document.getElementById("getTipBtn"); // New button for LLM feature
     const chatToggleBtn = document.getElementById("chatToggleBtn");
     const chatbotContainer = document.getElementById("chatbotContainer");
 
@@ -265,6 +266,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // New LLM Feature: Get Study Tip Button
+    getTipBtn.addEventListener("click", async () => {
+        const tipPrompt = "Provide a short, actionable study tip for staying focused and productive. Keep it very concise, just a sentence or two.";
+        addUserMessage("I need a quick study tip!"); // User's request in chat
+
+        // Display a typing indicator
+        const typingIndicatorElement = document.createElement("p");
+        typingIndicatorElement.classList.add("bot-message", "typing-indicator");
+        typingIndicatorElement.textContent = "Assistant is thinking...";
+        chatMessages.appendChild(typingIndicatorElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        try {
+            // Send a new conversation for this tip, or add it to existing history
+            const temporaryConversation = [{ role: "user", content: tipPrompt }]; // Send only the prompt for a fresh tip
+            const botResponse = await getChatResponseFromBackend(temporaryConversation); // Use temporary history for focused prompt
+            chatMessages.removeChild(typingIndicatorElement); // Remove typing indicator
+            addBotMessage(botResponse); // Display bot's response
+            // For specific tips, we might not want to add to main conversation history, or do so conditionally
+        } catch (error) {
+            console.error("Failed to get tip:", error);
+            chatMessages.removeChild(typingIndicatorElement); // Remove typing indicator even on error
+            addBotMessage("Sorry, I couldn't get a study tip right now. Please check the console for errors.");
+        }
+    });
+
 
     // Allow sending messages with Enter key
     userInput.addEventListener("keypress", (e) => {
