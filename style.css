@@ -171,7 +171,7 @@ main {
 .buttons {
     margin-top: -10px; /* NEGATIVE MARGIN-TOP to pull these buttons up */
     display: flex;
-    justify-content: center; /* Centers the start/stop buttons *within* this container */
+    justify-content: center;
     align-items: center;
     flex-shrink: 0;
     margin-left: 0;
@@ -496,4 +496,3 @@ main {
         font-size: 1.1em;
     }
 }
-
