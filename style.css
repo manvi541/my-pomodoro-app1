@@ -1,4 +1,4 @@
-/* style.css - MAXIMUM UPWARD SHIFT FOR TIMER, CHATBOT BACK TO BOTTOM-RIGHT */
+/* style.css - TIMER CENTERED WITH TRANSFORM, CHATBOT BOTTOM-RIGHT, MAX VERTICAL COMPACTION */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align from the very top */
-    align-items: center;
+    align-items: center; /* Ensures main flex items are horizontally centered within the body's flow */
     gap: 0px; /* Zero gap between main flex items */
     padding: 0px; /* Zero padding on body */
     min-height: 100vh; /* Ensure body takes full viewport height */
@@ -55,7 +55,7 @@ body {
     width: 100%;
     max-width: 600px;
     padding: 0; /* No padding */
-    margin: 0 auto;
+    margin: 0; /* No margin - let body's align-items center it indirectly */
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -67,7 +67,7 @@ body {
 }
 h1 {
     font-size: 1.3rem; /* Smallest font size for main h1 */
-    margin: 0px auto; /* Zero margin */
+    margin: 0px auto; /* Zero margin - this is for centering text within h1 */
 }
 
 .button-container {
@@ -86,10 +86,16 @@ main {
     text-align: center;
     margin-top: -30px; /* **MUCH MORE AGGRESSIVE NEGATIVE MARGIN-TOP** */
     margin-bottom: 0px; /* Zero bottom margin */
+    /* **NEW: Explicitly position and transform for perfect centering** */
+    position: relative; /* Needs to be relative for left/transform to work accurately */
+    left: 0; /* Resetting any default left */
+    transform: translateX(0); /* Resetting any default transform */
+    /* The body's align-items: center will center this flex item,
+       but we also need to ensure its internal content is centered, which it is. */
+    /* Removing margin-left/right auto here as body's align-items handles it better */
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     z-index: 1;
     flex-shrink: 0;
 }
@@ -176,13 +182,13 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Reverted to bottom-right fixed) --- */
+/* --- Chatbot Styles (Back to bottom-right fixed) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    width: 400px; /* Keeping original width */
-    height: 550px; /* Keeping original height */
+    width: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -190,14 +196,13 @@ main {
     position: fixed;
     bottom: 0; /* Fixed to the very bottom edge */
     right: 0; /* Fixed to the very right edge */
-    /* Removed 'left: 50%;' and 'transform: translateX(-50%);' */
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
 
 .chatbot-container.collapsed {
-    width: 50px; /* Slightly smaller collapsed size */
-    height: 50px; /* Slightly smaller collapsed size */
+    width: 50px;
+    height: 50px;
     padding: 0;
     overflow: hidden;
     border-radius: 50%;
@@ -407,6 +412,10 @@ main {
         height: 13rem;
         margin-top: -30px; /* Still aggressive negative margin for timer */
         margin-bottom: 0px;
+        /* NEW: Explicit positioning for centering on small screens */
+        position: relative;
+        left: 0;
+        transform: translateX(0);
     }
     .pomodoro {
         width: 10rem;
@@ -431,15 +440,14 @@ main {
         font-size: 0.7rem;
     }
 
-    /* Chatbot adjustments for smaller screens (reverted to bottom-right fixed) */
+    /* Chatbot adjustments for smaller screens (retained bottom-right fixed) */
     .chatbot-container {
-        width: 98vw; /* Retain responsive width */
-        height: 85vh; /* Retain responsive height */
-        max-height: 350px; /* Retain max height */
+        width: 98vw;
+        height: 85vh;
+        max-height: 350px;
         padding: 5px;
         bottom: 0px;
-        right: 0px; /* Back to bottom-right */
-        /* Removed 'left: 50%;' and 'transform: translateX(-50%);' */
+        right: 0px;
     }
     .chatbot-container.collapsed {
         width: 35px;
