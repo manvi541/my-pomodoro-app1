@@ -1,4 +1,4 @@
-/* style.css - MAXIMUM UPWARD SHIFT */
+/* style.css - Final Vertical Compactness for ALL Elements */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -13,10 +13,10 @@ body {
     color: rgb(255, 250, 253);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Ensure alignment from the very top */
+    justify-content: flex-start; /* Align from the very top */
     align-items: center;
-    gap: 1px; /* Absolutely minimal gap between main elements */
-    padding: 1px; /* Barely any padding on the body */
+    gap: 0px; /* Zero gap between main flex items */
+    padding: 0px; /* Zero padding on body */
     min-height: 100vh; /* Ensure body takes full viewport height */
     position: relative;
     overflow: hidden; /* Prevent body scroll */
@@ -25,26 +25,26 @@ body {
 /* --- Club Logo Styling --- */
 #club-logo {
     position: absolute;
-    top: 1px; /* Right at the top edge */
-    right: 1px; /* Right at the right edge */
-    width: 120px; /* Smallest logo size to save space */
+    top: 0px; /* Right at the top edge */
+    right: 0px; /* Right at the right edge */
+    width: 110px; /* Further reduced logo size */
     height: auto;
     z-index: 999;
-    border-radius: 15px; /* Slightly smaller radius */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Lighter shadow */
+    border-radius: 10px; /* Smaller radius */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Lighter shadow */
 }
 
 /* --- Timer Message Styling --- */
 #timer-message {
     color: white;
     background-color: rgb(10, 113, 120);
-    padding: .1rem .3rem; /* Extremely minimal padding */
-    font-size: 0.7rem; /* Smallest font size for message */
+    padding: .1rem .2rem; /* Extremely minimal padding */
+    font-size: 0.65rem; /* Smallest font size for message */
     text-align: center;
-    border-radius: 0.6rem;
-    margin-top: 1px; /* Minimal margin-top */
+    border-radius: 0.5rem;
+    margin-top: 5px; /* A tiny bit of margin to prevent touching edge */
     width: 99.5%; /* Almost full width */
-    max-width: 450px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
     flex-shrink: 0;
@@ -66,12 +66,12 @@ body {
     box-sizing: border-box;
 }
 h1 {
-    font-size: 1.4rem; /* Smaller font size for main h1 */
-    margin: 1px auto; /* Minimal margin */
+    font-size: 1.3rem; /* Smallest font size for main h1 */
+    margin: 0px auto; /* Zero margin */
 }
 
 .button-container {
-    margin-top: 1px; /* Minimal margin-top */
+    margin-top: 0px; /* Zero margin-top */
     display: flex;
     justify-content: center;
     gap: 1px; /* Minimal gap */
@@ -80,12 +80,12 @@ h1 {
 
 /* --- Pomodoro Timer & Border Styling --- */
 main {
-    width: 20rem; /* Further reduced size for more vertical space */
-    height: 20rem; /* Further reduced size */
+    width: 18rem; /* Further reduced size to gain maximum vertical space */
+    height: 18rem; /* Further reduced size */
     border-radius: 50%;
     text-align: center;
-    margin-top: -10px; /* **Aggressively negative margin-top to pull it up** */
-    margin-bottom: 1px; /* Minimal bottom margin */
+    margin-top: -30px; /* **MUCH MORE AGGRESSIVE NEGATIVE MARGIN-TOP** */
+    margin-bottom: 0px; /* Zero bottom margin */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,8 +95,8 @@ main {
 }
 
 .pomodoro {
-    width: 16rem; /* Reduced inner circle size proportionally */
-    height: 16rem; /* Reduced inner circle size proportionally */
+    width: 14rem; /* Reduced inner circle size proportionally */
+    height: 14rem; /* Reduced inner circle size proportionally */
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -105,23 +105,23 @@ main {
     align-items: center;
     position: relative;
     z-index: 2;
-    box-shadow: 0 8px 20px rgba(250, 214, 230, 0.5);
+    box-shadow: 0 5px 15px rgba(250, 214, 230, 0.4); /* Lighter shadow */
 }
 
 .pomodoro::before {
     content: "";
     position: absolute;
-    width: calc(100% + 10px); /* Thinner border */
-    height: calc(100% + 10px);
-    border: 5px solid rgb(99, 224, 233); /* Thinner border */
+    width: calc(100% + 8px); /* Thinner border */
+    height: calc(100% + 8px);
+    border: 4px solid rgb(99, 224, 233); /* Thinner border */
     border-radius: 50%;
-    top: -5px;
-    left: -5px;
+    top: -4px;
+    left: -4px;
     z-index: -1;
 }
 
 .time {
-    font-size: 3.5rem !important; /* Smaller font for time display */
+    font-size: 3rem !important; /* Smaller font for time display */
     margin: 0;
     display: block;
     width: 100%;
@@ -132,12 +132,12 @@ main {
     background-color: #fff2f9;
     color: #000000;
     border: none;
-    border-radius: 3px; /* Smallest border radius */
-    padding: 3px 6px; /* Minimal button padding */
+    border-radius: 3px;
+    padding: 2px 5px; /* Extremely minimal button padding */
     margin: 1px; /* Minimal button margin */
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.65rem; /* Smallest button font size */
+    font-size: 0.6rem; /* Smallest button font size */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -153,7 +153,7 @@ main {
 }
 
 .buttons {
-    margin-top: 1px; /* Minimal margin from the Pomodoro circle */
+    margin-top: -10px; /* **NEGATIVE MARGIN-TOP to pull these buttons up** */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,12 +162,12 @@ main {
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
-    border-radius: 4px; /* Reduced border-radius */
-    padding: 6px 12px; /* Reduced padding for start/stop buttons */
-    margin: 3px; /* Reduced margin between start/stop */
+    border-radius: 4px;
+    padding: 5px 10px; /* Reduced padding for start/stop buttons */
+    margin: 2px; /* Reduced margin between start/stop */
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.8rem; /* Smaller font for start/stop */
+    font-size: 0.75rem; /* Smaller font for start/stop */
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -176,7 +176,7 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Maintained Original Sizes, but adjusted position for overall fit) --- */
+/* --- Chatbot Styles (Centered horizontally) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
@@ -189,7 +189,8 @@ main {
     color: #333;
     position: fixed;
     bottom: 0; /* Pushed to the very bottom edge */
-    right: 0; /* Pushed to the very right edge */
+    left: 50%; /* Start at 50% from the left */
+    transform: translateX(-50%); /* Shift left by half its width to center */
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
@@ -219,9 +220,9 @@ main {
 
 .chatbot-container h2 {
     text-align: center;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 10px;
     color: #a02000;
-    font-size: 1.5rem; /* Reduced font size */
+    font-size: 1.5rem;
     flex-shrink: 0;
 }
 
@@ -232,24 +233,24 @@ main {
     overflow-y: auto;
     border: none;
     border-radius: 15px;
-    padding: 10px; /* Reduced padding */
-    margin-bottom: 10px; /* Reduced margin */
+    padding: 10px;
+    margin-bottom: 10px;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Reduced gap */
-    min-height: 150px; /* Reduced min-height */
+    gap: 8px;
+    min-height: 150px;
 }
 
 .user-message, .bot-message {
-    padding: 10px 15px; /* Reduced padding */
+    padding: 10px 15px;
     border-radius: 15px;
     max-width: 85%;
     margin-bottom: 0;
     word-wrap: break-word;
-    font-size: 0.95em; /* Reduced font size */
-    line-height: 1.4; /* Adjusted line height */
+    font-size: 0.95em;
+    line-height: 1.4;
 }
 
 .user-message {
@@ -273,31 +274,31 @@ main {
     font-style: italic;
     color: #555;
     text-align: center;
-    margin: 8px auto; /* Reduced margin */
-    padding: 10px 20px; /* Reduced padding */
-    border-radius: 10px; /* Reduced border radius */
+    margin: 8px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .chat-input-area {
     display: flex;
-    gap: 8px; /* Reduced gap */
+    gap: 8px;
     align-items: center;
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 8px 15px; /* Reduced padding */
+    padding: 8px 15px;
 }
 
 #userInput {
     flex-grow: 1;
-    padding: 8px 12px; /* Reduced padding */
+    padding: 8px 12px;
     border: none;
-    border-radius: 8px; /* Reduced border radius */
-    font-size: 0.9em; /* Reduced font size */
+    border-radius: 8px;
+    font-size: 0.9em;
     outline: none;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: box-shadow 0.2s ease;
-    height: 40px; /* Reduced height */
+    height: 40px;
 }
 
 #userInput:focus {
@@ -305,15 +306,15 @@ main {
 }
 
 #sendChatBtn {
-    width: 40px; /* Reduced size */
-    height: 40px; /* Reduced size */
+    width: 40px;
+    height: 40px;
     padding: 0;
     background-color: #a02000;
     color: white;
     border: 2px solid #55a8cf;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 0.7em; /* Reduced font size */
+    font-size: 0.7em;
     font-weight: 600;
     display: flex;
     justify-content: center;
@@ -335,16 +336,16 @@ main {
 /* Positioning for the toggle button */
 .chat-toggle-btn {
     position: absolute;
-    top: 8px; /* Reduced distance from top */
-    right: 8px; /* Reduced distance from right */
+    top: 8px;
+    right: 8px;
     transform: none;
     background-color: transparent;
     color: #a02000;
     border: none;
     border-radius: 50%;
-    width: 35px; /* Reduced size */
-    height: 35px; /* Reduced size */
-    font-size: 1.2em; /* Reduced font size */
+    width: 35px;
+    height: 35px;
+    font-size: 1.2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -362,9 +363,9 @@ main {
     background-color: #a02000;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.8em; /* Reduced font size */
-    width: 50px; /* Reduced size */
-    height: 50px; /* Reduced size */
+    font-size: 1.8em;
+    width: 50px;
+    height: 50px;
 }
 
 .typing-indicator {
@@ -376,101 +377,102 @@ main {
 /* Adjust existing media query for responsiveness */
 @media screen and (max-width: 900px) {
     body {
-        gap: 0px; /* Zero gap on small screens */
-        padding: 0px; /* Zero padding on small screens */
+        gap: 0px;
+        padding: 0px;
     }
     #club-logo {
-        width: 100px; /* Even smaller logo on small screens */
-        top: 2px;
-        right: 2px;
+        width: 90px; /* Even smaller logo on small screens */
+        top: 0px;
+        right: 0px;
     }
     #timer-message {
-        font-size: 0.7rem;
-        padding: .1rem .2rem;
+        font-size: 0.6rem; /* Smallest font for message on small screens */
+        padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.3rem;
-        margin: 2px auto;
+        font-size: 1.2rem;
+        margin: 0px auto;
     }
     .button-container {
-        margin-top: 2px;
-        gap: 2px;
+        margin-top: 0px;
+        gap: 0px;
     }
     .button {
-        padding: 2px 5px;
-        font-size: 0.6rem;
+        padding: 1px 4px;
+        font-size: 0.55rem;
     }
     main {
-        width: 14rem; /* Significantly scaled down main circle on small screens */
-        height: 14rem;
-        margin-top: -15px; /* More aggressive negative margin on small screens */
-        margin-bottom: 2px;
+        width: 13rem; /* Further scaled down main circle on small screens */
+        height: 13rem;
+        margin-top: -30px; /* **More aggressive negative margin on small screens** */
+        margin-bottom: 0px;
     }
     .pomodoro {
-        width: 11rem; /* Scaled down inner circle */
-        height: 11rem;
+        width: 10rem; /* Scaled down inner circle */
+        height: 10rem;
     }
     .pomodoro::before {
-        border: 4px solid rgb(99, 224, 233); /* Minimal border */
-        width: calc(100% + 8px);
-        height: calc(100% + 8px);
-        top: -4px;
-        left: -4px;
+        border: 3px solid rgb(99, 224, 233); /* Minimal border */
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
+        top: -3px;
+        left: -3px;
     }
     .time {
-        font-size: 3rem !important; /* Smallest font for time */
+        font-size: 2.5rem !important; /* Smallest font for time */
     }
     .buttons {
-        margin-top: 2px; /* Minimal margin */
+        margin-top: -10px; /* **More aggressive negative margin for buttons on small screens** */
     }
     #start, #stop {
-        padding: 5px 10px;
-        margin: 3px;
-        font-size: 0.75rem;
+        padding: 4px 8px;
+        margin: 2px;
+        font-size: 0.7rem;
     }
 
     /* Chatbot adjustments for smaller screens */
     .chatbot-container {
-        width: 98vw; /* Almost full viewport width */
-        height: 90vh; /* Almost full viewport height */
-        max-height: 400px; /* Adjusted max height */
-        padding: 8px;
-        bottom: 2px;
-        right: 2px;
+        width: 98vw;
+        height: 85vh;
+        max-height: 350px; /* Adjusted max height */
+        padding: 5px;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .chatbot-container.collapsed {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     .chat-messages {
-        min-height: 60px; /* Reduced min height */
-        padding: 6px;
-        gap: 4px;
+        min-height: 50px;
+        padding: 5px;
+        gap: 3px;
     }
     .user-message, .bot-message {
-        padding: 6px 10px;
-        font-size: 0.8em;
+        padding: 5px 8px;
+        font-size: 0.75em;
     }
     #userInput {
-        height: 30px;
-        padding: 5px 8px;
+        height: 25px;
+        padding: 4px 6px;
     }
     #sendChatBtn {
-        width: 30px;
-        height: 30px;
-        font-size: 0.5em;
+        width: 25px;
+        height: 25px;
+        font-size: 0.4em;
     }
     .chat-toggle-btn {
         top: 5px;
         right: 5px;
-        width: 25px;
-        height: 25px;
-        font-size: 1em;
+        width: 20px;
+        height: 20px;
+        font-size: 0.9em;
     }
     .chatbot-container.collapsed .chat-toggle-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1.3em;
+        width: 30px;
+        height: 30px;
+        font-size: 1.1em;
     }
 }
