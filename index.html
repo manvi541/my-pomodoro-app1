@@ -10,6 +10,12 @@
 <body>
     <img id="club-logo" src="logo.png" alt="Club Logo">
 
+    <div id="welcome-message">
+        Welcome to MediSec! Boost your focus and productivity. Select a timer to begin
+        your journey to better study habits with our Pomodoro Timer and helpful
+        Study Assistant.
+    </div>
+
     <div class="pomodoro-section-wrapper">
         <div id="timer-message">
             Time to focus!
@@ -19,11 +25,12 @@
             <div class="timer">
                 <h1>Pomodoro Timer</h1>
                 <div class="button-container">
-                    <button class="button active" data-time="25">Pomodoro!</button>
-                    <button class="button" data-time="5">Short Break!</button>
-                    <button class="button" data-time="15">Long Break!</button>
+                    <button class="button active" id="pomodoro-session-btn" data-time="25">Pomodoro!</button>
+                    <button class="button" id="short-break-btn" data-time="5">Short Break!</button>
+                    <button class="button" id="long-break-btn" data-time="15">Long Break!</button>
                 </div>
-                <main> <div class="pomodoro">
+                <main id="main-timer-display" class="timer-display active-timer">
+                    <div class="pomodoro">
                         <span class="time" id="time-display">25:00</span>
                     </div>
                 </main>
@@ -35,9 +42,9 @@
         </div>
     </div>
 
-    <div class="chatbot-container">
+    <div class="chatbot-container" id="chatbotContainer">
         <h2>Chatbot</h2>
-        <div class="chat-toggle-btn">💬</div>
+        <div class="chat-toggle-btn" id="chatToggleBtn">💬</div>
         <div class="chat-content">
             <div class="chat-messages" id="chat-messages">
                 <div class="bot-message initial-greeting">Hello! How can I help you?</div>
