@@ -1,4 +1,4 @@
-/* style.css - Revised for Position & Visibility */
+/* style.css - Final Revision for No Scrolling & All Elements Visible */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -13,23 +13,21 @@ body {
     color: rgb(255, 250, 253);
     display: flex;
     flex-direction: column;
-    /* Use space-between to push content to top and bottom, or center for less crowded look */
-    justify-content: center; /* Changed to center to balance content vertically */
+    justify-content: flex-start; /* Align content to the very top */
     align-items: center;
-    /* Reduced gap between main sections to free up vertical space */
-    gap: 15px; 
-    padding: 15px; /* Slightly reduced overall padding */
+    gap: 8px; /* Reduced gap between major sections for compactness */
+    padding: 10px; /* Reduced overall padding */
     min-height: 100vh; /* Ensure body takes full viewport height */
     position: relative;
-    overflow: hidden; /* Helps prevent body scroll if content slightly exceeds viewport */
+    overflow: hidden; /* Crucial to prevent body scroll */
 }
 
 /* --- Club Logo Styling --- */
 #club-logo {
     position: absolute;
-    top: 15px; /* Adjusted distance from the top */
-    right: 15px; /* Adjusted distance from the right */
-    width: 200px; /* Kept original size */
+    top: 10px; /* Slightly higher */
+    right: 10px; /* Slightly closer to edge */
+    width: 180px; /* Slightly reduced width for more space */
     height: auto;
     z-index: 999;
     border-radius: 20px;
@@ -40,59 +38,64 @@ body {
 #timer-message {
     color: white;
     background-color: rgb(10, 113, 120);
-    padding: .5rem 1rem;
-    font-size: 1rem;
+    padding: .4rem .8rem; /* Reduced padding */
+    font-size: 0.9rem; /* Slightly smaller font */
     text-align: center;
     border-radius: 1rem;
-    margin-top: 5px; /* Significantly reduced margin-top */
-    width: fit-content;
-    max-width: 90%; /* Added max-width for better responsiveness */
+    margin-top: 10px; /* Reduced margin from top of body */
+    width: 95%; /* Allow it to take more width */
+    max-width: 550px; /* Constrain max width for readability */
     margin-left: auto;
     margin-right: auto;
+    flex-shrink: 0; /* Prevent it from shrinking */
 }
 
 .container {
     text-align: center;
     width: 100%;
     max-width: 600px;
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced padding */
     margin: 0 auto;
+    flex-grow: 0; /* Don't allow this to grow and push other things down */
+    flex-shrink: 0; /* Don't allow it to shrink either */
 }
 .timer {
     display: block;
-    padding: 10px;
+    padding: 5px; /* Reduced padding */
     width: 100%;
     box-sizing: border-box;
 }
 h1 {
-    font-size: 2rem;
-    margin: 10px auto; /* Reduced margin to pull it up */
+    font-size: 1.8rem; /* Slightly reduced font size for main h1 */
+    margin: 8px auto; /* Reduced margin */
 }
 
 .button-container {
-    margin-top: 15px; /* Adjusted margin-top */
+    margin-top: 10px; /* Reduced margin-top */
     display: flex;
     justify-content: center;
-    gap: 8px; /* Added small gap between buttons */
+    gap: 6px; /* Reduced gap between buttons */
+    flex-shrink: 0;
 }
 
 /* --- Pomodoro Timer & Border Styling --- */
 main {
-    width: 25rem; /* Reverted to original fixed size */
-    height: 25rem; /* Reverted to original fixed size */
+    width: 25rem; /* Maintain original size */
+    height: 25rem; /* Maintain original size */
     border-radius: 50%;
     text-align: center;
-    margin: 1rem auto; /* Reduced margin to pull it up */
+    margin: 10px auto; /* Significantly reduced margin to pull it up */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
+    flex-shrink: 0; /* Prevent it from shrinking */
 }
 
 .pomodoro {
-    width: 20rem; /* Reverted to original fixed size */
-    height: 20rem; /* Reverted to original fixed size */
+    width: 20rem; /* Maintain original size */
+    height: 20rem; /* Maintain original size */
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -117,7 +120,7 @@ main {
 }
 
 .time {
-    font-size: 5rem !important; /* Reverted to original size */
+    font-size: 5rem !important; /* Maintain original size */
     margin: 0;
     display: block;
     width: 100%;
@@ -129,10 +132,11 @@ main {
     color: #000000;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px; /* Reverted to original padding */
-    margin: 5px; /* Reverted to original margin */
+    padding: 8px 16px; /* Slightly reduced button padding */
+    margin: 4px; /* Reduced button margin */
     cursor: pointer;
     transition: all .2s ease-in;
+    font-size: 0.9rem; /* Slightly reduced button font size */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -148,14 +152,18 @@ main {
 }
 
 .buttons {
-    margin-top: 15px; /* Adjusted margin to bring buttons closer */
+    margin-top: 10px; /* Reduced margin from the Pomodoro circle */
+    display: flex; /* Ensure flex for centering */
+    justify-content: center; /* Center the start/stop buttons */
+    align-items: center;
+    flex-shrink: 0; /* Prevent it from shrinking */
 }
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 5px;
-    padding: 10px 20px; /* Reverted to original padding */
-    margin: 10px; /* Reverted to original margin */
+    padding: 10px 20px; /* Original padding */
+    margin: 8px; /* Slightly reduced margin between start/stop */
     cursor: pointer;
     transition: all .2s ease-in;
 }
@@ -166,27 +174,27 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Reverted to Original Sizes, adjusted position) --- */
+/* --- Chatbot Styles (Maintained Original Sizes, adjusted position) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    width: 400px; /* Reverted to original width */
-    height: 550px; /* Reverted to original height */
+    width: 400px; /* Original width */
+    height: 550px; /* Original height */
     display: flex;
     flex-direction: column;
-    padding: 25px; /* Reverted to original padding */
+    padding: 25px;
     color: #333;
     position: fixed;
-    bottom: 20px; /* Kept original position relative to viewport */
-    right: 20px; /* Kept original position relative to viewport */
+    bottom: 15px; /* Slightly closer to bottom for more space */
+    right: 15px;
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
 
 .chatbot-container.collapsed {
-    width: 60px; /* Reverted to original collapsed size */
-    height: 60px; /* Reverted to original collapsed size */
+    width: 60px;
+    height: 60px;
     padding: 0;
     overflow: hidden;
     border-radius: 50%;
@@ -209,9 +217,9 @@ main {
 
 .chatbot-container h2 {
     text-align: center;
-    margin-bottom: 15px; /* Reverted to original margin */
+    margin-bottom: 15px;
     color: #a02000;
-    font-size: 1.7rem; /* Reverted to original font size */
+    font-size: 1.7rem;
     flex-shrink: 0;
 }
 
@@ -222,24 +230,24 @@ main {
     overflow-y: auto;
     border: none;
     border-radius: 15px;
-    padding: 15px; /* Reverted to original padding */
-    margin-bottom: 15px; /* Reverted to original margin */
+    padding: 15px;
+    margin-bottom: 15px;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Reverted to original gap */
-    min-height: 180px; /* Reverted to original min-height */
+    gap: 10px;
+    min-height: 180px;
 }
 
 .user-message, .bot-message {
-    padding: 12px 18px; /* Reverted to original padding */
+    padding: 12px 18px;
     border-radius: 15px;
     max-width: 85%;
     margin-bottom: 0;
     word-wrap: break-word;
-    font-size: 1em; /* Reverted to original font size */
-    line-height: 1.5; /* Reverted to original line height */
+    font-size: 1em;
+    line-height: 1.5;
 }
 
 .user-message {
@@ -270,24 +278,24 @@ main {
 
 .chat-input-area {
     display: flex;
-    gap: 10px; /* Reverted to original gap */
+    gap: 10px;
     align-items: center;
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 10px 25px; /* Reverted to original padding */
+    padding: 10px 25px;
 }
 
 #userInput {
     flex-grow: 1;
-    padding: 10px 15px; /* Reverted to original padding */
+    padding: 10px 15px;
     border: none;
-    border-radius: 10px; /* Reverted to original border radius */
-    font-size: 1em; /* Reverted to original font size */
+    border-radius: 10px;
+    font-size: 1em;
     outline: none;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: box-shadow 0.2s ease;
-    height: 45px; /* Reverted to original height */
+    height: 45px;
 }
 
 #userInput:focus {
@@ -295,15 +303,15 @@ main {
 }
 
 #sendChatBtn {
-    width: 45px; /* Reverted to original width */
-    height: 45px; /* Reverted to original height */
+    width: 45px;
+    height: 45px;
     padding: 0;
     background-color: #a02000;
     color: white;
     border: 2px solid #55a8cf;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 0.8em; /* Reverted to original font size */
+    font-size: 0.8em;
     font-weight: 600;
     display: flex;
     justify-content: center;
@@ -325,16 +333,16 @@ main {
 /* Positioning for the toggle button */
 .chat-toggle-btn {
     position: absolute;
-    top: 15px; /* Reverted to original top position */
-    right: 15px; /* Reverted to original right position */
+    top: 15px;
+    right: 15px;
     transform: none;
     background-color: transparent;
     color: #a02000;
     border: none;
     border-radius: 50%;
-    width: 40px; /* Reverted to original width */
-    height: 40px; /* Reverted to original height */
-    font-size: 1.5em; /* Reverted to original font size */
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -352,9 +360,9 @@ main {
     background-color: #a02000;
     color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-size: 2em; /* Reverted to original font size */
-    width: 60px; /* Reverted to original width */
-    height: 60px; /* Reverted to original height */
+    font-size: 2em;
+    width: 60px;
+    height: 60px;
 }
 
 .typing-indicator {
@@ -363,74 +371,92 @@ main {
     align-self: flex-start;
 }
 
-/* Adjust existing media query to accommodate chatbot */
-@media screen and (min-width: 320px) and (max-width: 900px) {
+/* Adjust existing media query for responsiveness */
+@media screen and (max-width: 900px) { /* Changed min-width to max-width to apply below 900px */
     body {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px; /* Adjusted for smaller screens */
-        padding: 10px; /* Adjusted for smaller screens */
+        gap: 6px; /* Even tighter gap on smaller screens */
+        padding: 8px; /* Even less padding on smaller screens */
     }
-    .container, .chatbot-container {
-        width: 95%; /* Adjusted for smaller screens */
-        margin-bottom: 10px; /* Adjusted for smaller screens */
+    #club-logo {
+        width: 150px; /* Smaller logo on small screens */
+        top: 8px;
+        right: 8px;
     }
-    .timer {
-        width: 100%;
+    #timer-message {
+        font-size: 0.85rem;
+        padding: .3rem .6rem;
+        margin-top: 8px;
     }
-    main {
-        width: 20rem; /* Kept original size */
-        height: 20rem; /* Kept original size */
-        margin: 1rem auto; /* Adjusted margin */
-    }
-    .pomodoro {
-        width: 16rem; /* Scaled down slightly for small screens */
-        height: 16rem; /* Scaled down slightly for small screens */
-    }
-    .time {
-        font-size: 4rem !important; /* Adjusted for smaller screens */
+    h1 {
+        font-size: 1.6rem;
+        margin: 6px auto;
     }
     .button-container {
-        margin-top: 10px;
-        gap: 5px;
+        margin-top: 8px;
+        gap: 4px;
     }
     .button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    main {
+        width: 18rem; /* Scale down main circle slightly on small screens */
+        height: 18rem;
+        margin: 8px auto; /* Reduced margin */
+    }
+    .pomodoro {
+        width: 15rem; /* Scale down inner circle */
+        height: 15rem;
+    }
+    .pomodoro::before {
+        border: 8px solid rgb(99, 224, 233); /* Slightly thinner border */
+        width: calc(100% + 16px);
+        height: calc(100% + 16px);
+        top: -8px;
+        left: -8px;
+    }
+    .time {
+        font-size: 4rem !important; /* Smaller font for time */
+    }
+    .buttons {
+        margin-top: 8px; /* Adjusted margin */
     }
     #start, #stop {
-        padding: 8px 18px;
-        font-size: 0.95rem;
-        margin: 8px;
+        padding: 8px 16px;
+        margin: 6px;
+        font-size: 0.9rem;
     }
 
-    /* Chatbot styles for smaller screens */
-    .chatbot-container:not(.collapsed) {
-        height: 85vh; /* Allow it to take more vertical space */
-        width: 95%;
+    /* Chatbot adjustments for smaller screens */
+    .chatbot-container {
+        width: 90vw; /* Use viewport width for better scaling */
+        height: 80vh; /* Use viewport height for better scaling */
+        max-height: 500px; /* Set a max height to prevent it from getting too tall */
         padding: 15px;
-        bottom: 5px;
-        right: 5px;
+        bottom: 10px;
+        right: 10px;
     }
-    .chatbot-container h2 {
-        font-size: 1.5rem;
+    .chatbot-container.collapsed {
+        width: 50px;
+        height: 50px;
     }
     .chat-messages {
+        min-height: 100px; /* Reduced min height */
         padding: 10px;
-        min-height: 150px;
+        gap: 6px;
     }
     .user-message, .bot-message {
+        padding: 10px 15px;
         font-size: 0.9em;
-        padding: 10px 15px;
     }
-    #userInput, #sendChatBtn {
-        padding: 10px 15px;
-        font-size: 0.95em;
-        height: 40px;
+    #userInput {
+        height: 38px;
+        padding: 8px 12px;
     }
     #sendChatBtn {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.7em;
     }
     .chat-toggle-btn {
         top: 10px;
