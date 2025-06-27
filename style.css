@@ -1,4 +1,4 @@
-/* style.css - Final Revision for No Scrolling & All Elements Visible */
+/* style.css - Final Attempt: Aggressively Shifted Upwards */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -15,8 +15,8 @@ body {
     flex-direction: column;
     justify-content: flex-start; /* Align content to the very top */
     align-items: center;
-    gap: 8px; /* Reduced gap between major sections for compactness */
-    padding: 10px; /* Reduced overall padding */
+    gap: 5px; /* Even smaller gap between major sections for maximum compaction */
+    padding: 5px; /* Minimal overall padding to allow more vertical space */
     min-height: 100vh; /* Ensure body takes full viewport height */
     position: relative;
     overflow: hidden; /* Crucial to prevent body scroll */
@@ -25,9 +25,9 @@ body {
 /* --- Club Logo Styling --- */
 #club-logo {
     position: absolute;
-    top: 10px; /* Slightly higher */
-    right: 10px; /* Slightly closer to edge */
-    width: 180px; /* Slightly reduced width for more space */
+    top: 5px; /* Even higher, very close to the top edge */
+    right: 5px; /* Very close to the right edge */
+    width: 150px; /* Slightly smaller logo to reduce its footprint */
     height: auto;
     z-index: 999;
     border-radius: 20px;
@@ -38,64 +38,64 @@ body {
 #timer-message {
     color: white;
     background-color: rgb(10, 113, 120);
-    padding: .4rem .8rem; /* Reduced padding */
-    font-size: 0.9rem; /* Slightly smaller font */
+    padding: .3rem .6rem; /* Minimal padding */
+    font-size: 0.8rem; /* Smaller font to save space */
     text-align: center;
-    border-radius: 1rem;
-    margin-top: 10px; /* Reduced margin from top of body */
-    width: 95%; /* Allow it to take more width */
-    max-width: 550px; /* Constrain max width for readability */
+    border-radius: 0.8rem; /* Smaller border-radius */
+    margin-top: 5px; /* Minimal margin-top */
+    width: 98%; /* Allow it to take almost full width */
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-shrink: 0;
 }
 
 .container {
     text-align: center;
     width: 100%;
     max-width: 600px;
-    padding: 5px 0; /* Reduced padding */
+    padding: 0; /* No vertical padding */
     margin: 0 auto;
-    flex-grow: 0; /* Don't allow this to grow and push other things down */
-    flex-shrink: 0; /* Don't allow it to shrink either */
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 .timer {
     display: block;
-    padding: 5px; /* Reduced padding */
+    padding: 0; /* No vertical padding */
     width: 100%;
     box-sizing: border-box;
 }
 h1 {
-    font-size: 1.8rem; /* Slightly reduced font size for main h1 */
-    margin: 8px auto; /* Reduced margin */
+    font-size: 1.6rem; /* Even smaller font size for main h1 */
+    margin: 5px auto; /* Minimal margin */
 }
 
 .button-container {
-    margin-top: 10px; /* Reduced margin-top */
+    margin-top: 5px; /* Minimal margin-top */
     display: flex;
     justify-content: center;
-    gap: 6px; /* Reduced gap between buttons */
+    gap: 4px; /* Minimal gap between buttons */
     flex-shrink: 0;
 }
 
 /* --- Pomodoro Timer & Border Styling --- */
 main {
-    width: 25rem; /* Maintain original size */
-    height: 25rem; /* Maintain original size */
+    width: 23rem; /* Slightly reduced size to gain vertical space */
+    height: 23rem; /* Slightly reduced size */
     border-radius: 50%;
     text-align: center;
-    margin: 10px auto; /* Significantly reduced margin to pull it up */
+    margin: 5px auto; /* Aggressively reduced margin-top */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
-    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-shrink: 0;
 }
 
 .pomodoro {
-    width: 20rem; /* Maintain original size */
-    height: 20rem; /* Maintain original size */
+    width: 18rem; /* Reduced inner circle size proportionally */
+    height: 18rem; /* Reduced inner circle size proportionally */
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -110,17 +110,17 @@ main {
 .pomodoro::before {
     content: "";
     position: absolute;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    border: 10px solid rgb(99, 224, 233);
+    width: calc(100% + 16px); /* Adjusted for slightly thinner border */
+    height: calc(100% + 16px);
+    border: 8px solid rgb(99, 224, 233); /* Slightly thinner border */
     border-radius: 50%;
-    top: -10px;
-    left: -10px;
+    top: -8px;
+    left: -8px;
     z-index: -1;
 }
 
 .time {
-    font-size: 5rem !important; /* Maintain original size */
+    font-size: 4.5rem !important; /* Slightly smaller font for time display */
     margin: 0;
     display: block;
     width: 100%;
@@ -132,11 +132,11 @@ main {
     color: #000000;
     border: none;
     border-radius: 5px;
-    padding: 8px 16px; /* Slightly reduced button padding */
-    margin: 4px; /* Reduced button margin */
+    padding: 6px 12px; /* Reduced button padding */
+    margin: 3px; /* Reduced button margin */
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.9rem; /* Slightly reduced button font size */
+    font-size: 0.8rem; /* Smaller button font size */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -152,20 +152,21 @@ main {
 }
 
 .buttons {
-    margin-top: 10px; /* Reduced margin from the Pomodoro circle */
-    display: flex; /* Ensure flex for centering */
-    justify-content: center; /* Center the start/stop buttons */
+    margin-top: 5px; /* Aggressively reduced margin from the Pomodoro circle */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-shrink: 0;
 }
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 5px;
-    padding: 10px 20px; /* Original padding */
-    margin: 8px; /* Slightly reduced margin between start/stop */
+    padding: 8px 16px; /* Reduced padding for start/stop buttons */
+    margin: 5px; /* Reduced margin between start/stop */
     cursor: pointer;
     transition: all .2s ease-in;
+    font-size: 0.9rem; /* Slightly smaller font for start/stop */
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -174,20 +175,20 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Chatbot Styles (Maintained Original Sizes, adjusted position) --- */
+/* --- Chatbot Styles (Maintained Original Sizes, but adjusted position for overall fit) --- */
 .chatbot-container {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    width: 400px; /* Original width */
-    height: 550px; /* Original height */
+    width: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     padding: 25px;
     color: #333;
     position: fixed;
-    bottom: 15px; /* Slightly closer to bottom for more space */
-    right: 15px;
+    bottom: 10px; /* Slightly higher from the bottom edge */
+    right: 10px; /* Slightly closer to the right edge */
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
@@ -372,102 +373,102 @@ main {
 }
 
 /* Adjust existing media query for responsiveness */
-@media screen and (max-width: 900px) { /* Changed min-width to max-width to apply below 900px */
+@media screen and (max-width: 900px) {
     body {
-        gap: 6px; /* Even tighter gap on smaller screens */
-        padding: 8px; /* Even less padding on smaller screens */
+        gap: 4px; /* Even tighter gap on smaller screens */
+        padding: 5px; /* Minimal padding on smaller screens */
     }
     #club-logo {
-        width: 150px; /* Smaller logo on small screens */
-        top: 8px;
-        right: 8px;
+        width: 120px; /* Smaller logo on small screens */
+        top: 5px;
+        right: 5px;
     }
     #timer-message {
-        font-size: 0.85rem;
-        padding: .3rem .6rem;
-        margin-top: 8px;
+        font-size: 0.8rem;
+        padding: .2rem .5rem;
+        margin-top: 5px;
     }
     h1 {
-        font-size: 1.6rem;
-        margin: 6px auto;
+        font-size: 1.5rem;
+        margin: 4px auto;
     }
     .button-container {
-        margin-top: 8px;
-        gap: 4px;
+        margin-top: 4px;
+        gap: 3px;
     }
     .button {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
     main {
-        width: 18rem; /* Scale down main circle slightly on small screens */
-        height: 18rem;
-        margin: 8px auto; /* Reduced margin */
+        width: 16rem; /* Significantly scaled down main circle on small screens */
+        height: 16rem;
+        margin: 5px auto; /* Minimal margin */
     }
     .pomodoro {
-        width: 15rem; /* Scale down inner circle */
-        height: 15rem;
+        width: 13rem; /* Scaled down inner circle */
+        height: 13rem;
     }
     .pomodoro::before {
-        border: 8px solid rgb(99, 224, 233); /* Slightly thinner border */
-        width: calc(100% + 16px);
-        height: calc(100% + 16px);
-        top: -8px;
-        left: -8px;
+        border: 6px solid rgb(99, 224, 233); /* Even thinner border */
+        width: calc(100% + 12px);
+        height: calc(100% + 12px);
+        top: -6px;
+        left: -6px;
     }
     .time {
-        font-size: 4rem !important; /* Smaller font for time */
+        font-size: 3.5rem !important; /* Smaller font for time */
     }
     .buttons {
-        margin-top: 8px; /* Adjusted margin */
+        margin-top: 5px; /* Minimal margin */
     }
     #start, #stop {
-        padding: 8px 16px;
-        margin: 6px;
-        font-size: 0.9rem;
+        padding: 6px 12px;
+        margin: 4px;
+        font-size: 0.85rem;
     }
 
     /* Chatbot adjustments for smaller screens */
     .chatbot-container {
-        width: 90vw; /* Use viewport width for better scaling */
-        height: 80vh; /* Use viewport height for better scaling */
-        max-height: 500px; /* Set a max height to prevent it from getting too tall */
-        padding: 15px;
-        bottom: 10px;
-        right: 10px;
+        width: 95vw; /* More aggressive scaling for width */
+        height: 85vh; /* More aggressive scaling for height */
+        max-height: 450px; /* Adjusted max height */
+        padding: 10px;
+        bottom: 5px;
+        right: 5px;
     }
     .chatbot-container.collapsed {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
     .chat-messages {
-        min-height: 100px; /* Reduced min height */
-        padding: 10px;
-        gap: 6px;
+        min-height: 80px; /* Reduced min height */
+        padding: 8px;
+        gap: 5px;
     }
     .user-message, .bot-message {
-        padding: 10px 15px;
-        font-size: 0.9em;
+        padding: 8px 12px;
+        font-size: 0.85em;
     }
     #userInput {
-        height: 38px;
-        padding: 8px 12px;
+        height: 35px;
+        padding: 6px 10px;
     }
     #sendChatBtn {
-        width: 38px;
-        height: 38px;
-        font-size: 0.7em;
-    }
-    .chat-toggle-btn {
-        top: 10px;
-        right: 10px;
         width: 35px;
         height: 35px;
-        font-size: 1.3em;
+        font-size: 0.6em;
+    }
+    .chat-toggle-btn {
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
     }
     .chatbot-container.collapsed .chat-toggle-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.8em;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
     }
 }
