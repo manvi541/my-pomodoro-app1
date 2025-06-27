@@ -1,4 +1,4 @@
-/* This is the original style.css, as provided in the early stages of our conversation */
+/* style.css - Sync'd with script.js and index.html */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -22,21 +22,21 @@ body {
     overflow: hidden;
 }
 
-/* --- Original Club Logo Styling --- */
+/* --- Club Logo Styling --- */
 #club-logo {
     position: absolute;
-    top: 5px; /* Adjust as needed */
-    right: 5px; /* Adjust as needed */
-    width: 100px; /* Adjust as needed */
+    top: 5px;
+    right: 5px;
+    width: 100px;
     height: auto;
     z-index: 10;
-    background-color: rgba(255, 255, 255, 0.7); /* Light background for visibility */
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* --- Original Wrapper for Pomodoro Section --- */
+/* --- NEW WRAPPER FOR POMODORO SECTION - THE MAIN CENTERING BLOCK --- */
 .pomodoro-section-wrapper {
     width: 100%;
     max-width: 600px;
@@ -49,12 +49,12 @@ body {
     justify-content: flex-start;
 }
 
-/* --- Original Timer Message Styling --- */
+/* --- Timer Message Styling --- */
 #timer-message {
     color: white;
     background-color: rgb(10, 113, 120);
     padding: .1rem .2rem;
-    font-size: 0.65rem; /* Original font-size */
+    font-size: 0.65rem;
     text-align: center;
     border-radius: 0.5rem;
     margin-top: 5px;
@@ -72,7 +72,7 @@ body {
     flex-shrink: 0;
 }
 
-/* --- Original .timer as a Flex Container --- */
+/* --- THE KEY TO CENTERING THE ENTIRE TIMER UNIT: .timer as a Flex Container --- */
 .timer {
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@ body {
 }
 
 h1 {
-    font-size: 1.3rem; /* Original font-size */
+    font-size: 1.3rem;
     margin: 0;
     text-align: center;
 }
@@ -99,17 +99,17 @@ h1 {
     margin-right: 0;
 }
 
-/* --- Original Pomodoro Type Buttons --- */
+/* --- Pomodoro Type Buttons (Pomodoro!, Short Break!, Long Break!) --- */
 .button {
     background-color: #fff2f9;
     color: #000000;
     border: none;
     border-radius: 3px;
-    padding: 2px 5px; /* Original padding */
+    padding: 2px 5px;
     margin: 1px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.6rem; /* Original font-size */
+    font-size: 0.6rem;
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -117,33 +117,35 @@ h1 {
 .hidden {
     display: none !important;
 }
-.timer-display {
-    display: none;
-}
-.timer-display.active-timer {
-    display: block;
-}
 
-/* --- Original Pomodoro Timer & Border Styling --- */
-main {
-    width: 18rem; /* Original width */
-    height: 18rem; /* Original height */
+/* --- Timer Display Wrapper (for pomodoro-timer, short-timer, long-timer) --- */
+.timer-display {
+    width: 18rem; /* Match original main size */
+    height: 18rem; /* Match original main size */
     border-radius: 50%;
     text-align: center;
     margin-top: -30px;
     margin-bottom: 0px;
-    display: flex;
+    display: flex; /* Hide by default */
     justify-content: center;
     align-items: center;
     z-index: 1;
     flex-shrink: 0;
     margin-left: 0;
     margin-right: 0;
+    /* Hide all but the active one */
+    display: none; 
+}
+.timer-display.active-timer {
+    display: flex; /* Show the active one */
 }
 
+
+/* --- Pomodoro Inner Circle Styling (the red circle) --- */
+/* This now applies to the .pomodoro div *inside* each .timer-display */
 .pomodoro {
-    width: 14rem; /* Original width */
-    height: 14rem; /* Original height */
+    width: 14rem;
+    height: 14rem;
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -167,9 +169,9 @@ main {
     z-index: -1;
 }
 
-/* --- Original Timer Display Numbers --- */
+/* --- Timer Display Numbers --- */
 .time {
-    font-size: 3rem !important; /* Original font-size */
+    font-size: 3rem !important;
     margin: 0 auto;
     display: block;
     width: 100%;
@@ -185,16 +187,16 @@ main {
     margin-left: 0;
     margin-right: 0;
 }
-/* --- Original Start/Stop Buttons --- */
+/* --- Start/Stop Buttons --- */
 #start, #stop {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 4px;
-    padding: 5px 10px; /* Original padding */
+    padding: 5px 10px;
     margin: 2px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.75rem; /* Original font-size */
+    font-size: 0.75rem;
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -203,8 +205,9 @@ main {
     background-color: rgb(147, 240, 128);
 }
 
-/* --- Original Chatbot Styles --- */
-.chatbot-container {
+/* --- Chatbot Styles --- */
+/* NOW targeting ID #chatbotContainer */
+#chatbotContainer {
     background-color: rgb(204, 230, 245);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
@@ -221,7 +224,7 @@ main {
     transition: all 0.3s ease-in-out;
 }
 
-.chatbot-container.collapsed {
+#chatbotContainer.collapsed {
     width: 50px;
     height: 50px;
     padding: 0;
@@ -234,7 +237,7 @@ main {
     cursor: pointer;
 }
 
-.chatbot-container.collapsed .chat-content {
+#chatbotContainer.collapsed .chat-content {
     display: none;
 }
 
@@ -244,7 +247,7 @@ main {
     flex-grow: 1;
 }
 
-.chatbot-container h2 {
+#chatbotContainer h2 {
     text-align: center;
     margin-bottom: 10px;
     color: #a02000;
@@ -359,8 +362,8 @@ main {
     transform: translateY(0);
 }
 
-/* Original Positioning for the toggle button */
-.chat-toggle-btn {
+/* Positioning for the toggle button - NOW targeting ID #chatToggleBtn */
+#chatToggleBtn {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -381,8 +384,8 @@ main {
     transition: all 0.3s ease;
 }
 
-/* Original Styles for the toggle button when the chatbot is collapsed */
-.chatbot-container.collapsed .chat-toggle-btn {
+/* Styles for the toggle button when the chatbot is collapsed - NOW targeting ID #chatToggleBtn within #chatbotContainer.collapsed */
+#chatbotContainer.collapsed #chatToggleBtn {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -400,13 +403,13 @@ main {
     align-self: flex-start;
 }
 
-/* Original media query for responsiveness */
+/* Adjust existing media query for responsiveness */
 @media screen and (max-width: 900px) {
     body {
         gap: 0px;
         padding: 0px;
     }
-    /* --- Original Club Logo Styling for smaller screens --- */
+    /* --- Club Logo Styling for smaller screens --- */
     #club-logo {
         top: 2px;
         right: 2px;
@@ -419,12 +422,12 @@ main {
         min-height: unset;
     }
     #timer-message {
-        font-size: 0.6rem; /* Original font-size */
+        font-size: 0.6rem;
         padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.2rem; /* Original font-size */
+        font-size: 1.2rem;
         margin: 0;
     }
     .button-container {
@@ -432,18 +435,18 @@ main {
         gap: 0px;
     }
     .button {
-        padding: 1px 4px; /* Original padding */
-        font-size: 0.55rem; /* Original font-size */
+        padding: 1px 4px;
+        font-size: 0.55rem;
     }
-    main {
-        width: 13rem; /* Original width */
-        height: 13rem; /* Original height */
+    .timer-display { /* Applied to all timer-display elements */
+        width: 13rem;
+        height: 13rem;
         margin-top: -30px;
         margin-bottom: 0px;
     }
-    .pomodoro {
-        width: 10rem; /* Original width */
-        height: 10rem; /* Original height */
+    .pomodoro { /* Inner circle within timer-display */
+        width: 10rem;
+        height: 10rem;
     }
     .pomodoro::before {
         border: 3px solid rgb(99, 224, 233);
@@ -453,20 +456,20 @@ main {
         left: -3px;
     }
     .time {
-        font-size: 2.5rem !important; /* Original font-size */
+        font-size: 2.5rem !important;
         margin: 0 auto;
     }
     .buttons {
         margin-top: -10px;
     }
     #start, #stop {
-        padding: 4px 8px; /* Original padding */
+        padding: 4px 8px;
         margin: 2px;
-        font-size: 0.75rem; /* Original font-size */
+        font-size: 0.75rem;
     }
 
-    /* Original Chatbot adjustments for smaller screens */
-    .chatbot-container {
+    /* Chatbot adjustments for smaller screens */
+    #chatbotContainer { /* Targeting ID */
         width: 98vw;
         height: 85vh;
         max-height: 350px;
@@ -474,7 +477,7 @@ main {
         bottom: 0px;
         right: 0px;
     }
-    .chatbot-container.collapsed {
+    #chatbotContainer.collapsed { /* Targeting ID */
         width: 35px;
         height: 35px;
     }
@@ -496,14 +499,14 @@ main {
         height: 25px;
         font-size: 0.4em;
     }
-    .chat-toggle-btn {
+    #chatToggleBtn { /* Targeting ID */
         top: 5px;
         right: 5px;
         width: 20px;
         height: 20px;
         font-size: 0.9em;
     }
-    .chatbot-container.collapsed .chat-toggle-btn {
+    #chatbotContainer.collapsed #chatToggleBtn { /* Targeting ID */
         width: 30px;
         height: 30px;
         font-size: 1.1em;
