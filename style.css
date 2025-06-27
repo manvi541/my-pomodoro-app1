@@ -46,7 +46,7 @@ body {
     color: white;
     background-color: rgb(10, 113, 120);
     padding: .1rem .2rem;
-    font-size: 0.8rem; /* Corrected: A bit larger */
+    font-size: 0.65rem; /* Reverted font-size */
     text-align: center;
     border-radius: 0.5rem;
     margin-top: 5px;
@@ -76,7 +76,7 @@ body {
 }
 
 h1 {
-    font-size: 1.5rem; /* Increased from 1.3rem */
+    font-size: 1.3rem; /* Reverted font-size */
     margin: 0; /* Ensures no conflicting margins; .timer's align-items centers it */
     text-align: center; /* Fallback for text centering within its own block */
 }
@@ -97,11 +97,11 @@ h1 {
     color: #000000;
     border: none;
     border-radius: 3px;
-    padding: 4px 8px; /* Increased from 2px 5px */
+    padding: 2px 5px; /* Reverted padding */
     margin: 1px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.75rem; /* Increased from 0.6rem */
+    font-size: 0.6rem; /* Reverted font-size */
 }
 .button.active, .button:hover {
     background-color: #17ffecf5;
@@ -118,8 +118,8 @@ h1 {
 
 /* --- Pomodoro Timer & Border Styling (main element - the red circle) --- */
 main {
-    width: 20rem; /* Increased from 18rem */
-    height: 20rem; /* Increased from 18rem */
+    width: 18rem; /* Reverted width */
+    height: 18rem; /* Reverted height */
     border-radius: 50%;
     text-align: center; /* For content inside main, e.g., .time */
     margin-top: -30px; /* STILL AGGRESSIVE NEGATIVE MARGIN-TOP for vertical position */
@@ -134,8 +134,8 @@ main {
 }
 
 .pomodoro {
-    width: 16rem; /* Proportional to main */
-    height: 16rem; /* Proportional to main */
+    width: 14rem; /* Reverted width */
+    height: 14rem; /* Reverted height */
     border-radius: 50%;
     background-color: #a02000;
     display: flex;
@@ -161,7 +161,7 @@ main {
 
 /* --- Timer Display Numbers --- */
 .time {
-    font-size: 3.5rem !important; /* Increased from 3rem */
+    font-size: 3rem !important; /* Reverted font-size */
     margin: 0 auto; /* Ensures the time text is centered within .pomodoro */
     display: block;
     width: 100%;
@@ -182,11 +182,11 @@ main {
     background-color: rgb(205, 225, 236);
     color: #fff;
     border-radius: 4px;
-    padding: 7px 14px; /* Increased from 5px 10px */
+    padding: 5px 10px; /* Reverted padding */
     margin: 2px;
     cursor: pointer;
     transition: all .2s ease-in;
-    font-size: 0.9rem; /* Increased from 0.75rem */
+    font-size: 0.75rem; /* Reverted font-size */
 }
 #stop:hover {
     background-color: rgb(113, 3, 30);
@@ -402,16 +402,16 @@ main {
     /* The #club-logo rules have been deleted from this file */
 
     .pomodoro-section-wrapper {
-        max-width: 95%; /* Adjust wrapper width for small screens */
-        min-height: unset; /* Remove min-height for small screens to prevent overflow */
+        max-width: 95%;
+        min-height: unset;
     }
     #timer-message {
-        font-size: 0.7rem; /* Corrected: A bit larger for smaller screens */
+        font-size: 0.6rem; /* Reverted font-size */
         padding: .05rem .1rem;
         margin-top: 2px;
     }
     h1 {
-        font-size: 1.3rem; /* Increased from 1.2rem */
+        font-size: 1.2rem; /* Reverted font-size */
         margin: 0;
     }
     .button-container {
@@ -419,18 +419,18 @@ main {
         gap: 0px;
     }
     .button {
-        padding: 2px 6px; /* Increased from 1px 4px */
-        font-size: 0.65rem; /* Increased from 0.55rem */
+        padding: 1px 4px; /* Reverted padding */
+        font-size: 0.55rem; /* Reverted font-size */
     }
     main {
-        width: 15rem; /* Increased from 13rem */
-        height: 15rem; /* Increased from 13rem */
-        margin-top: -30px; /* Still aggressive negative margin for timer */
+        width: 13rem; /* Reverted width */
+        height: 13rem; /* Reverted height */
+        margin-top: -30px;
         margin-bottom: 0px;
     }
     .pomodoro {
-        width: 12rem; /* Increased from 10rem */
-        height: 12rem; /* Increased from 10rem */
+        width: 10rem; /* Reverted width */
+        height: 10rem; /* Reverted height */
     }
     .pomodoro::before {
         border: 3px solid rgb(99, 224, 233);
@@ -440,19 +440,19 @@ main {
         left: -3px;
     }
     .time {
-        font-size: 3rem !important; /* Increased from 2.5rem */
+        font-size: 2.5rem !important; /* Reverted font-size */
         margin: 0 auto;
     }
     .buttons {
         margin-top: -10px;
     }
     #start, #stop {
-        padding: 6px 12px;
+        padding: 4px 8px; /* Reverted padding */
         margin: 2px;
-        font-size: 0.85rem;
+        font-size: 0.75rem; /* Reverted font-size */
     }
 
-    /* Chatbot adjustments for smaller screens (retained bottom-right fixed) */
+    /* Chatbot adjustments for smaller screens */
     .chatbot-container {
         width: 98vw;
         height: 85vh;
